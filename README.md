@@ -7,7 +7,7 @@ to Dwolla's iPhone app.
 
 #FAQ
 
-##You're charging for this app on the app store! Can't I just donwload this for free and laod it on my phone?
+##You're charging for this app on the app store! Can't I just donwload this for free and load it on my phone?
 
 Sure, go right ahead. You'll have to modify the API keys and such, and you'll need to be a registered iOS developer
 and pay a program fee of $99/year. I'm selling this for a modest fee because I know some people won't want to do that
