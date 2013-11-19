@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>19F0ACE4-D8BC-4F46-B8A9-431C8098D0A7</string>
+	<string>8157696A-60D0-449C-9B58-36F34F0FA767</string>
 	<key>IDESourceControlProjectName</key>
 	<string>DwollaHere</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>CB4237BE-9E98-4E1E-9165-61227A1D29A0</key>
+		<key>93699ED1-50DF-4C5D-A139-A9E52AEC9787</key>
 		<string>https://github.com/brettneese/dwolla-here-iphone.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>DwollaHere.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>CB4237BE-9E98-4E1E-9165-61227A1D29A0</key>
+		<key>93699ED1-50DF-4C5D-A139-A9E52AEC9787</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>CB4237BE-9E98-4E1E-9165-61227A1D29A0</string>
+	<string>93699ED1-50DF-4C5D-A139-A9E52AEC9787</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>CB4237BE-9E98-4E1E-9165-61227A1D29A0</string>
+			<string>93699ED1-50DF-4C5D-A139-A9E52AEC9787</string>
 			<key>IDESourceControlWCCName</key>
 			<string>dwolla-here-iphone</string>
 		</dict>
