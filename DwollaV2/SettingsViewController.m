@@ -52,15 +52,10 @@
         [_id setText:@""];
         [top addSubview:_id];
         
-//        transactionsb = [[UIButton alloc] initWithFrame:CGRectMake(10, 80, 280, 50)];
-//        [transactionsb setImage:[UIImage imageNamed:@"dw_transaction.png"] forState:UIControlStateNormal];
-//        [transactionsb addTarget:self action:@selector(showTransactions) forControlEvents:UIControlEventTouchUpInside];
-//        [top addSubview:transactionsb];
-        
-        requestsb = [[UIButton alloc] initWithFrame:CGRectMake(10, 80, 280, 50)];
-        [requestsb setImage:[UIImage imageNamed:@"dw_transaction.png"] forState:UIControlStateNormal];
-        [requestsb addTarget:self action:@selector(showRequests) forControlEvents:UIControlEventTouchUpInside];
-        [top addSubview:requestsb];
+        transactionsb = [[UIButton alloc] initWithFrame:CGRectMake(10, 80, 280, 50)];
+        [transactionsb setImage:[UIImage imageNamed:@"dw_transaction.png"] forState:UIControlStateNormal];
+        [transactionsb addTarget:self action:@selector(showTransactions) forControlEvents:UIControlEventTouchUpInside];
+        [top addSubview:transactionsb];
         
         support = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 39)];
         [support setBackgroundColor:[UIColor clearColor]];
