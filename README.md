@@ -28,7 +28,8 @@ my fork, and do with it what you will.
 This app is much faster and much easier to use. You can withdraw and deposit directly within the app -- no messing
 around with Instant nor going to the website. Given the primary reason one uses the Dwolla iPhone app is to pay 
 venues around them, this app immediately opens to a list of venues and people around you the moment you open in it --
-no waiting for your balance to update, nor hitting any extra buttons.
+no waiting for your balance to update, nor hitting any extra buttons. It still takes too many taps to pay someone, 
+but we'll get there. ;)
 
 ## What's different from the open source "mobile wallet"?
 

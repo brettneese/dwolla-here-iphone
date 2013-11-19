@@ -59,7 +59,7 @@
         
         requestsb = [[UIButton alloc] initWithFrame:CGRectMake(10, 80, 280, 50)];
         [requestsb setImage:[UIImage imageNamed:@"dw_transaction.png"] forState:UIControlStateNormal];
-        [requestsb addTarget:self action:@selector(showTransactions) forControlEvents:UIControlEventTouchUpInside];
+        [requestsb addTarget:self action:@selector(showRequests) forControlEvents:UIControlEventTouchUpInside];
         [top addSubview:requestsb];
         
         support = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 39)];
