@@ -282,7 +282,7 @@
 
 -(void)displayRequests
 {
-    [self performSelectorOnMainThread:@selector(updateBalance) withObject:nil waitUntilDone:YES];
+    [self performSelectorOnMainThread:@selector(updateBalance) withObject:nil waitUntilDone:NO];
 }
 
 -(void)displayError:(NSString*)error
