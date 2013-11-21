@@ -312,11 +312,7 @@
     [confirm destroy];
     [confirm removeFromSuperview];
     confirm = nil;
-    
-    [slip destroy];
-    [slip removeFromSuperview];
-    slip = nil;
-    
+ 
     [source destroy];
     [source removeFromSuperview];
     source = nil;

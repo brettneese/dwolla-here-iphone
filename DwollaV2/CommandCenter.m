@@ -48,7 +48,7 @@
     if ([api didRemember])
     {
         [self getLocation];
-        [self performSelectorInBackground:@selector(getBalance) withObject:nil];
+        [self performSelectorInBackground:@selector(loadEverything) withObject:nil];
         return YES;
     }
     else
@@ -75,6 +75,14 @@
         
     }
     return response;
+}
+
+-(void)getBalance
+{
+    [api setUserBalance:user];
+    [self getInfo];
+    [self performSelectorInBackground:@selector(getTransactions) withObject:nil];
+    [[self delegate] displayBalance];
 }
 
 -(void)getLocation
@@ -107,18 +115,18 @@
     [manager stopUpdatingLocation];
 }
 
--(void)getBalance
+-(void)loadEverything
 {
     [api setUserBalance:user];
     [self getInfo];
     [self performSelectorInBackground:@selector(getTransactions) withObject:nil];
-    //[[self delegate] displayBalance];
+    [[self delegate] displayBalance];
 }
 
 -(void)getRequests
 {
     [api setUserRequests:user];
-    [[self delegate] displayRequests];
+    [[self delegate] displayBalance];
 }
 
 -(NSMutableArray*)userRequests
@@ -130,13 +138,12 @@
 {
     [api setUserInfo:user];
     [api setUserImage:user];
-    [self performSelectorInBackground:@selector(getRequests) withObject:nil];
     [self getNearby:15];
 }
 
 -(NSMutableArray*)userInfo
 {
-    //[self getInfo];
+    [self getInfo];
     return [[NSMutableArray alloc] initWithObjects:[user dwolla_id], [user name], [user image], nil];
 }
 

@@ -32,6 +32,7 @@
     BoldTextView* name;
     UITextView* _id;
     UIButton* transactionsb;
+    UIButton* requestsb;
     UIButton* support;
     UIButton* forgot;
     UIButton* about;

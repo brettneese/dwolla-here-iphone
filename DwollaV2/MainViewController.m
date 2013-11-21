@@ -225,7 +225,6 @@
 }
 
 - (void)getBalance{
-    
     [command getBalance];
 }
 
@@ -233,9 +232,7 @@
     balance.text = [@"$" stringByAppendingString:[command userBalance]];
 }
 
-
-- (void)showRequests
-{
+- (void)showRequests{
     requests_scroll = [[ScrollableView alloc] init];
     [requests_scroll addCommandCenter:command];
     [requests_scroll addRequests:[command userRequests] withDelegate:self];
@@ -269,8 +266,7 @@
     [requests_scroll slideIn];
 }
 
-- (void)loadContacts
-{
+- (void)loadContacts{
     NSMutableArray* contacts = [command getContacts];
     for (int i = 0; i < [contacts count]; i++)
     {
@@ -280,10 +276,7 @@
     }
 }
 
--(void)displayRequests
-{
-    [self performSelectorOnMainThread:@selector(updateBalance) withObject:nil waitUntilDone:NO];
-}
+-(void)displayBalance{[self performSelectorOnMainThread:@selector(updateBalance) withObject:nil waitUntilDone:NO];}
 
 -(void)displayError:(NSString*)error
 {

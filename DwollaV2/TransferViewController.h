@@ -10,7 +10,6 @@
 #import "KeyboardViewController.h"
 #import "PinView.h"
 #import "TransferConfirmView.h"
-#import "SlipView.h"
 #import "SourceView.h"
 #import "CommandCenter.h"
 #import "RoundedView.h"
@@ -27,7 +26,7 @@
 
 @end
 
-@interface TransferViewController : UIViewController <TransferConfirmViewDelegate, SlipViewDelegate, SourceViewDelegate>
+@interface TransferViewController : UIViewController <TransferConfirmViewDelegate, SourceViewDelegate>
 
 {
     CommandCenter* command;
@@ -47,7 +46,6 @@
     KeyboardViewController* keyboard;
     PinView* pin;
     TransferConfirmView* confirm;
-    SlipView* slip;
     SourceView* source;
     
     UITextView* transfer_source;

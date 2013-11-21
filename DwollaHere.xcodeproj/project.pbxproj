@@ -155,7 +155,6 @@
 		7D67C99116CD88C100C09A80 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D67C98F16CD88C100C09A80 /* InfoPlist.strings */; };
 		7D67C99416CD88C100C09A80 /* DwollaV2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D67C99316CD88C100C09A80 /* DwollaV2Tests.m */; };
 		7D67C9A316CF4E0100C09A80 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D67C9A216CF4E0100C09A80 /* TutorialViewController.m */; };
-		7D9F509D16D8059600EFC5D1 /* SlipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F509C16D8059600EFC5D1 /* SlipView.m */; };
 		7D9F50A116D807F500EFC5D1 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F50A016D807F500EFC5D1 /* MapViewController.m */; };
 		7D9F50A316D80B2100EFC5D1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9F50A216D80B2100EFC5D1 /* MapKit.framework */; };
 		7D9F50A616D80BA000EFC5D1 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F50A516D80BA000EFC5D1 /* SettingsViewController.m */; };
@@ -378,8 +377,6 @@
 		7D67C99316CD88C100C09A80 /* DwollaV2Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DwollaV2Tests.m; sourceTree = "<group>"; };
 		7D67C9A116CF4E0100C09A80 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
 		7D67C9A216CF4E0100C09A80 /* TutorialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TutorialViewController.m; sourceTree = "<group>"; };
-		7D9F509B16D8059600EFC5D1 /* SlipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlipView.h; sourceTree = "<group>"; };
-		7D9F509C16D8059600EFC5D1 /* SlipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlipView.m; sourceTree = "<group>"; };
 		7D9F509F16D807F400EFC5D1 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		7D9F50A016D807F500EFC5D1 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		7D9F50A216D80B2100EFC5D1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -760,8 +757,6 @@
 				7D14CBE516D57D3F003DA942 /* TransferViewController.m */,
 				7D065D69174EA4D400C28DB1 /* SourceView.h */,
 				7D065D6A174EA4D400C28DB1 /* SourceView.m */,
-				7D9F509B16D8059600EFC5D1 /* SlipView.h */,
-				7D9F509C16D8059600EFC5D1 /* SlipView.m */,
 				7D065D4A174AE21C00C28DB1 /* TransferConfirmView.h */,
 				7D065D4B174AE22200C28DB1 /* TransferConfirmView.m */,
 			);
@@ -1017,7 +1012,6 @@
 				7D14CBE016D549C6003DA942 /* ConfirmView.m in Sources */,
 				7D14CBE316D54EB2003DA942 /* ReceiptView.m in Sources */,
 				7D14CBE616D57D40003DA942 /* TransferViewController.m in Sources */,
-				7D9F509D16D8059600EFC5D1 /* SlipView.m in Sources */,
 				7D9F50A116D807F500EFC5D1 /* MapViewController.m in Sources */,
 				7D9F50A616D80BA000EFC5D1 /* SettingsViewController.m in Sources */,
 				7D9F50AD16D8100C00EFC5D1 /* CommandCenter.m in Sources */,
