@@ -38,7 +38,6 @@
     UIScrollView* content;
     UIView* footer;
     UIButton* withdraw;
-    UIButton* balanceUpdate;
     UIImageView* balancebg;
     UITextView* balance;
     UIButton* deposit;
@@ -79,13 +78,9 @@
 
 - (void)showDeposit;
 
-- (void)updateBalance;
-
 - (void)showWithdraw;
 
 - (void)tweet;
-
-- (void)getBalance;
 
 - (void)loadContacts;
 

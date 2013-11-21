@@ -112,6 +112,13 @@
     [api setUserBalance:user];
     [self getInfo];
     [self performSelectorInBackground:@selector(getTransactions) withObject:nil];
+    [[self delegate] displayBalance];
+}
+
+-(void)getRequests
+{
+    [api setUserRequests:user];
+    [[self delegate] displayRequests];
 }
 
 -(NSMutableArray*)userRequests
@@ -123,8 +130,8 @@
 {
     [api setUserInfo:user];
     [api setUserImage:user];
-    [self performSelectorInBackground:@selector(updateBalance) withObject:nil];
-    [self getNearby:25];
+    [self performSelectorInBackground:@selector(getRequests) withObject:nil];
+    [self getNearby:15];
 }
 
 -(NSMutableArray*)userInfo

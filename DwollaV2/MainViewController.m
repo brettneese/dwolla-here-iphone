@@ -8,7 +8,6 @@
 
 #import "MainViewController.h"
 
-
 @interface MainViewController ()
 
 @end
@@ -96,16 +95,11 @@
         balance.textAlignment = NSTextAlignmentCenter;
         [balance setFont:[UIFont fontWithName:@"GillSans-Light" size:20]];
         [balance setTextColor:[UIColor whiteColor]];
-        balance.text = @"Loading...";
-        
+        balance.text = @"0.00";
         [balance setBackgroundColor:[UIColor clearColor]];
         [balance setUserInteractionEnabled:NO];
         [footer addSubview:balance];
         
-        balanceUpdate = [[UIButton alloc] initWithFrame:CGRectMake(80, 0, 160, 40)];
-        [balanceUpdate addTarget:self action:@selector(updateBalance) forControlEvents:UIControlEventTouchUpInside];
-        [footer addSubview:balanceUpdate];
-
         deposit = [[UIButton alloc] initWithFrame:CGRectMake(280, 0, 40, 40)];
         [deposit setTitle:@"+" forState:UIControlStateNormal];
         [deposit setImage:[UIImage imageNamed:@"dw_deposit.png"] forState:UIControlStateNormal];
@@ -120,10 +114,9 @@
         
         [self.view bringSubviewToFront:header];
         
-       // [self performSelectorInBackground:@selector(updateBalance) withObject:nil];
         number_of_places = 0;
         number_of_search = 0;
-        capacity = 25;
+        capacity = 15;
         editToggle = [NSNumber numberWithInt:1];
     }
     return self;
@@ -211,17 +204,9 @@
 - (void)closeTransfer
 {
     [transfer destroy];
-    balance.text = @"Transferring...";
-
-    [NSTimer scheduledTimerWithTimeInterval:5.0
-                                     target:self
-                                   selector:@selector(updateBalance)
-                                   userInfo:nil
-                                    repeats:NO];
     [transfer removeFromParentViewController];
     [transfer.view removeFromSuperview];
     transfer = nil;
-
 }
 
 - (void)showRequests
@@ -270,11 +255,15 @@
     }
 }
 
-- (void)updateBalance
+- (void)displayBalance
 {
-    balance.text = [@"$" stringByAppendingString:[command userBalance]];
+    //[self dropBalance];
 }
 
+-(void)displayRequests
+{
+    [self performSelectorOnMainThread:@selector(dropBalance) withObject:nil waitUntilDone:YES];
+}
 
 -(void)displayError:(NSString*)error
 {
@@ -296,7 +285,6 @@
     [UIView setAnimationDidStopSelector:@selector(raiseBalance)];
     footer.center = CGPointMake(160, screenBounds.size.height);
     [UIView commitAnimations];
-
 }
 
 - (void)raiseBalance
@@ -309,7 +297,42 @@
     footer.center = CGPointMake(160, screenBounds.size.height-40);
     [UIView commitAnimations];
     balance.text = [@"$" stringByAppendingString:[command userBalance]];
-   // [self dropRequests];
+    [self dropRequests];
+}
+
+- (void)dropRequests
+{
+//    NSMutableArray* requests = [command userRequests];
+//    if ([requests count] > 0)
+//    {
+//        [UIView beginAnimations:nil context:nil];
+//        [UIView setAnimationDelay:3.0];
+//        [UIView setAnimationDuration:.4];
+//        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+//        [UIView setAnimationDelegate:self];
+//        requests_header.center = CGPointMake(160, 60);
+//        content.frame = CGRectMake(0, 82, 320, screenBounds.size.height - 140);
+//        [UIView commitAnimations];
+//        NSString* count = [NSString stringWithFormat:@"%d", [requests count]];
+//        if ([requests count] > 20)
+//        {
+//            count = @"20+";
+//        }
+//        num_requests.text = count;
+//        [requests_header setEnabled:YES];
+//    }
+//    else
+//    {
+//        [UIView beginAnimations:nil context:nil];
+//        [UIView setAnimationDelay:3.0];
+//        [UIView setAnimationDuration:.4];
+//        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+//        [UIView setAnimationDelegate:self];
+//        requests_header.center = CGPointMake(160, 20);
+//        content.frame = CGRectMake(0, 40, 320, screenBounds.size.height - 100);
+//        [UIView commitAnimations];
+//        num_requests.text = [NSString stringWithFormat:@"%d", [requests count]];
+//    }
 }
 
 - (void)displayNearby
@@ -511,8 +534,6 @@
     [request_controller slideIn];
     [request_controller.view bringSubviewToFront:nav];
 }
-
-
 
 -(void)finished
 {
