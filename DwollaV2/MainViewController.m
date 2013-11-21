@@ -465,12 +465,13 @@
     twitter.titleLabel.shadowColor = [UIColor grayColor];
     twitter.titleLabel.shadowOffset = CGSizeMake(1.0, 1.0);
     [twitter.layer setShadowOffset:CGSizeMake(6, 6)];
-    [twitter.layer setShadowColor:[[UIColor blackColor] CGColor]];
+    [twitter.layer
+     setShadowColor:[[UIColor blackColor] CGColor]];
     [twitter.layer setShadowOpacity:0.5];
     [twitter setTitle:@"Share With Twitter!" forState:UIControlStateNormal];
     twitter.backgroundColor = [UIColor DwollaBlue];
     [twitter addTarget:self action:@selector(tweet) forControlEvents:UIControlEventTouchUpInside];
-    tweetText = [NSString stringWithFormat:@"I just used Dwolla to send money to %@!", name];
+    tweetText = [NSString stringWithFormat:@"I just used @PayHereApp to send money to %@! ", name];
     [receipt addSubview:twitter];
     
     nav = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
@@ -726,7 +727,7 @@
         {
             [[contacts objectAtIndex:i] removeFromSuperview];
         }
-        capacity += 5;
+        capacity += 10;
         [command getNearby:capacity];
     }
 }
