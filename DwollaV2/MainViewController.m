@@ -100,6 +100,11 @@
         [balance setUserInteractionEnabled:NO];
         [footer addSubview:balance];
         
+        updateBalance = [[UIButton alloc] initWithFrame:CGRectMake(80, 0, 160, 40)];
+        [updateBalance addTarget:self action:@selector(refreshBalance) forControlEvents:UIControlEventTouchUpInside];
+        [footer addSubview:updateBalance];
+        
+        
         deposit = [[UIButton alloc] initWithFrame:CGRectMake(280, 0, 40, 40)];
         [deposit setTitle:@"+" forState:UIControlStateNormal];
         [deposit setImage:[UIImage imageNamed:@"dw_deposit.png"] forState:UIControlStateNormal];
@@ -207,17 +212,28 @@
     [transfer removeFromParentViewController];
     [transfer.view removeFromSuperview];
     transfer = nil;
-    balance.text = @"Transferring...";
-    [NSTimer scheduledTimerWithTimeInterval:7.0
-                                               target:self
-                                             selector:@selector(updateBalance)
-                                             userInfo:nil
-                                              repeats:NO];
+    balance.text = @"Updating...";
+    [NSTimer scheduledTimerWithTimeInterval:5.00 target:self selector:@selector(getBalance) userInfo:nil repeats:NO];
+}
+
+
+- (void)refreshBalance{
+    
+    balance.text = @"Updating...";
+    [self performSelectorInBackground:@selector(getBalance) withObject:nil];
+
+}
+
+- (void)getBalance{
+    
+    [command getBalance];
 }
 
 - (void)updateBalance{
     balance.text = [@"$" stringByAppendingString:[command userBalance]];
 }
+
+
 - (void)showRequests
 {
     requests_scroll = [[ScrollableView alloc] init];

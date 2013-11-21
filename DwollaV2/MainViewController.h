@@ -40,6 +40,7 @@
     UIButton* withdraw;
     UIImageView* balancebg;
     UITextView* balance;
+    UIButton* updateBalance;
     UIButton* deposit;
     UIButton* mapback;
     UIScrollView* searchCover;
@@ -87,8 +88,8 @@
 
 - (void)dropBalance;
 
-- (void)updateBalance;
-
+- (void)getBalance;
+- (void)refreshBalance;
 - (void)raiseBalance;
 
 - (void)dropRequests;

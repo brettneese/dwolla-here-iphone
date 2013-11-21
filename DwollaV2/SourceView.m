@@ -42,7 +42,7 @@
         [transfer_text setTextColor:[UIColor DwollaDarkGray]];
         [transfer_text setUserInteractionEnabled:NO];
         [transfer_text setFont:[UIFont fontWithName:@"GillSans" size:16]];
-        [transfer_text setText:@"Choose a source to fund the deposit into your Dwolla account."];
+        [transfer_text setText:@"Choose a source to fund the deposit into your Dwolla account. Note that ACH transfers will take 3-5 business days to complete."];
         [content addSubview:transfer_text];
         
         close_source = [[UIButton alloc] initWithFrame:CGRectMake(265, 15, 20, 20)];
@@ -94,13 +94,13 @@
 - (void)setAsDeposit
 {
     [header setText:@"DEPOSIT SOURCE"];
-    [transfer_text setText:@"Choose a source to fund the deposit into your Dwolla account."];
+    [transfer_text setText:@"Choose a source to fund the deposit into your Dwolla account. ACH transfers will take 3-5 business days."];
 }
 
 - (void)setAsWithdraw
 {
     [header setText:@"WITHDRAWAL DESTINATION"];
-    [transfer_text setText:@"Choose a destination for the withdrawal from your Dwolla account."];
+    [transfer_text setText:@"Choose a destination for the withdrawal from your Dwolla account. ACH transfers will take 3-5 business days."];
 }
 
 - (void)close

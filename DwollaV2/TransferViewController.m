@@ -127,9 +127,9 @@
         [confirm setDelegate:self];
         [self.view addSubview:confirm];
         
-        slip = [[SlipView alloc] init];
-        [slip setDelegate:self];
-        [self.view addSubview:slip];
+//        slip = [[SlipView alloc] init];
+//        [slip setDelegate:self];
+//        [self.view addSubview:slip];
     }
     return self;
 }
@@ -232,18 +232,15 @@
     if (isDeposit)
     {
         response = [command depositMoney:[pin getPIN] source_id:[source source_id] amount:[total.text substringFromIndex:1]];
-        [slip setType:@"Deposit"];
     }
     else
     {
        response = [command withdrawMoney:[pin getPIN] source_id:[source source_id] amount:[total.text substringFromIndex:1]];
-        [slip setType:@"Withdrawal"];
     }
     if (![response isEqualToString:@"invalid"])
     {
-        [slip setEverything:total.text source:[source source_name] profile:profile.image bank:bank.image];
-        [self.view bringSubviewToFront:header];
-        [slip slideIn];
+        [self doneWithTransfer];
+        [self slideOut];
     }
     else
     {
