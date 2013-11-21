@@ -1,63 +1,92 @@
 //
-//  TransactionReceiptView.h
+//  SettingsViewController.h
 //  DwollaV2
 //
-//  Created by Nick Schulze on 5/15/13.
+//  Created by Nick Schulze on 2/22/13.
 //  Copyright (c) 2013 Nick Schulze. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "ScrollableView.h"
+#import "ReceiptView.h"
+#import "TransactionReceiptView.h"
+#import "CommandCenter.h"
 #import "RoundedView.h"
 #import "BoldTextView.h"
-#import "LightTextView.h"
+#import "RequestView.h"
+#import "RequestViewController.h"
 
-@class TransactionReceiptView;
-@protocol TransactionReceiptViewDelegate <NSObject>
+@class SettingsView;
+@protocol SettingsViewDelegate <NSObject>
 
 @optional
 @required
--(void)repayTransaction:(TransactionReceiptView*)transaction;
--(void)requestTransaction:(TransactionReceiptView*)transaction;
+-(void)logout;
+-(void)closeSettings;
 
 @end
 
-@interface TransactionReceiptView : UIView
+@interface SettingsViewController : UIViewController <TransactionViewDelegate, ScrollableDelegate, RequestViewDelegate, RequestViewControllerDelegate>
 {
     RoundedView* top;
+    UIView* middle;
+    UIView* bottom;
     UIImageView* profile;
     BoldTextView* name;
-    UIImageView* timebg;
-    BoldTextView* time;
-    BoldTextView* total;
-    LightTextView* amount;
-    UIButton* note_button;
-    UITextView* note;
-    UIButton* request;
-    UIButton* send ;
-    NSString* dwolla_id;
-    id<TransactionReceiptViewDelegate> delegate;
+    UITextView* _id;
+    UIButton* transactionsb;
+    UIButton* support;
+    UIButton* forgot;
+    UIButton* logout;
     UINavigationBar* nav;
+    CommandCenter* command;
+    ScrollableView* transactions_view;
+    id<SettingsViewDelegate> delegate;
+    BOOL isSet;
     CGRect screenBounds;
+    int transactions;
+    Transaction* previousTransaction;
+    NSMutableArray* transArray;
+    UIButton* requests_header;
+    UITextView* num_requests;
+    ScrollableView* requests_scroll;
+    RequestViewController* request_controller;
+    
+    UIView* loading;
 }
 
-@property (nonatomic, retain) id<TransactionReceiptViewDelegate> delegate;
+@property (retain) UINavigationBar* nav;
+@property (nonatomic, retain) id<SettingsViewDelegate> delegate;
 
--(void)setEverything:(UIImage*)_profile name:(NSString*)_name amount:(NSString*)_amount time:(NSString*)_time dwolla_id:(NSString*)_dwolla isSend:(BOOL)isSend note:(NSString*)_note;
+- (id)init;
 
--(NSString*)amount;
+-(void)addCommandCenter:(CommandCenter*)_command;
 
--(NSString*)name;
+-(void)setUserInfo:(NSMutableArray*)info;
 
--(UIImage*)profile;
+- (BOOL)userInfoSet;
 
--(NSString*)dwolla_id;
+-(void)showTransactions;
 
--(void)send;
+-(void)hideTransactions;
 
--(void)request;
+- (void)callSupport;
+
+- (void)forgotPin;
+
+- (void)logout;
+
+- (void)backgroundTransactions:(NSMutableArray*)trans;
+
+- (void)addTransactions:(NSMutableArray*)transactions;
 
 - (void)slideIn;
 
 - (void)slideOut;
 
+- (void)payReceipt;
+
+- (void)destory;
+
 @end
+

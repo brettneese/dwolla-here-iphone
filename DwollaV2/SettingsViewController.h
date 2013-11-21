@@ -12,6 +12,10 @@
 #import "CommandCenter.h"
 #import "RoundedView.h"
 #import "BoldTextView.h"
+#import "RequestView.h"
+#import "RequestViewController.h"
+
+
 
 @class SettingsView;
 @protocol SettingsViewDelegate <NSObject>
@@ -33,13 +37,16 @@
     UITextView* _id;
     UIButton* transactionsb;
     UIButton* requestsb;
+    UIButton* settingsb;
     UIButton* support;
     UIButton* forgot;
     UIButton* about;
     UIButton* logout;
     UINavigationBar* nav;
+    RequestViewController* request_controller;
     CommandCenter* command;
     ScrollableView* transactions_view;
+    ScrollableView* requests_scroll;
     TransactionReceiptView* receipt_view;
     id<SettingsViewDelegate> delegate;
     BOOL isSet;
@@ -65,6 +72,8 @@
 -(void)showTransactions;
 
 -(void)hideTransactions;
+
+- (void)showRequests;
 
 - (void)callSupport;
 

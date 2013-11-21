@@ -30,11 +30,11 @@
         [top setBackgroundColor:[UIColor whiteColor]];
         [self.view addSubview:top];
         
-        middle = [[UIView alloc] initWithFrame:CGRectMake(10, 200, 300, 500)];
+        middle = [[UIView alloc] initWithFrame:CGRectMake(10, 200, 300, 80)];
         [middle setBackgroundColor:[UIColor DwollaGray]];
         [self.view addSubview:middle];
         
-        bottom = [[UIView alloc] initWithFrame:CGRectMake(10, 325, 300, 40)];
+        bottom = [[UIView alloc] initWithFrame:CGRectMake(10, 290, 300, 40)];
         [bottom setBackgroundColor:[UIColor clearColor]];
         [self.view addSubview:bottom];
         
@@ -74,15 +74,6 @@
         [forgot setTitle:@"Forgot Your PIN?" forState:UIControlStateNormal];
         [forgot addTarget:self action:@selector(forgotPin) forControlEvents:UIControlEventTouchUpInside];
         [middle addSubview:forgot];
-    
-        about = [[UIButton alloc] initWithFrame:CGRectMake(0, 81, 300, 39)];
-        [about setBackgroundColor:[UIColor clearColor]];
-        [about setBackgroundImage:[UIImage imageNamed:@"dw_sourceb.png"] forState:UIControlStateNormal];
-        [about setTitleColor:[UIColor DwollaDarkGray] forState:UIControlStateNormal];
-        about.titleLabel.font = [UIFont fontWithName:@"GillSans-Bold" size:14];
-        [about setTitle:@"About This App" forState:UIControlStateNormal];
-        [about addTarget:self action:@selector(about) forControlEvents:UIControlEventTouchUpInside];
-        [middle addSubview:about];
         
         logout = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 40)];
         [logout setBackgroundImage:[UIImage imageNamed:@"dw_source.png"] forState:UIControlStateNormal];
@@ -95,8 +86,6 @@
         [logout addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
         [logout setTitle:@"Logout" forState:UIControlStateNormal];
         [bottom addSubview:logout];
-        
-        
         
         transactions_view = [[ScrollableView alloc] init];
         [transactions_view setDelegate:self];
@@ -208,11 +197,6 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"http://www.dwolla.com/forgot/pin"]];
 }
 
-- (void)about
-{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString: @"https://github.com/brettneese/dwolla-here-iphone"]];
-}
-
 - (void)logout
 {
     [[self delegate] logout];
@@ -307,8 +291,6 @@
     support = nil;
     [forgot removeFromSuperview];
     forgot = nil;
-    [about removeFromSuperview];
-    about = nil;
     [logout removeFromSuperview];
     logout = nil;
     [nav removeFromSuperview];
@@ -324,6 +306,42 @@
     transactions = nil;
     previousTransaction = nil;
 }
+
+- (void)showRequests
+{
+    requests_scroll = [[ScrollableView alloc] init];
+    [requests_scroll addCommandCenter:command];
+    [requests_scroll addRequests:[command userRequests] withDelegate:self];
+    [self.view addSubview:requests_scroll];
+    
+    nav = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [nav titleTextAttributes]];
+    [titleBarAttributes setValue:[UIFont fontWithName:@"GillSans-Bold" size:16] forKey:UITextAttributeFont];
+    [nav setTitleTextAttributes:titleBarAttributes];
+    
+    UIImage *originalImage = [UIImage imageNamed:@"dw_header.png"];
+    // scaling set to 2.0 makes the image 1/2 the size.
+    UIImage *scaledImage =
+    [UIImage imageWithCGImage:[originalImage CGImage]
+                        scale:(originalImage.scale * 2.0)
+                  orientation:(originalImage.imageOrientation)];
+    [nav setBackgroundImage:scaledImage forBarMetrics:UIBarMetricsDefault];
+    
+    [requests_scroll addSubview:nav];
+    
+    UINavigationItem* detail_header = [[UINavigationItem alloc] initWithTitle:@"REQUESTS"];
+    UIButton *backb = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backb addTarget:self action:@selector(popToMain) forControlEvents:UIControlEventTouchUpInside];
+    backb.bounds = CGRectMake( 0, 0, 50, 30 );
+    [backb setBackgroundImage:[UIImage imageNamed:@"dw_sdone.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:backb];
+    [detail_header setRightBarButtonItem:back];
+    [nav pushNavigationItem:detail_header animated:NO];
+    [requests_scroll bringSubviewToFront:nav];
+    nav.hidden = NO;
+    [requests_scroll slideIn];
+}
+
 
 - (void)viewDidLoad
 {
