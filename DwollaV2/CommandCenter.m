@@ -112,7 +112,7 @@
     [api setUserBalance:user];
     [self getInfo];
     [self performSelectorInBackground:@selector(getTransactions) withObject:nil];
-    [[self delegate] displayBalance];
+    //[[self delegate] displayBalance];
 }
 
 -(void)getRequests

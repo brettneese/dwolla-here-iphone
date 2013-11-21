@@ -95,7 +95,7 @@
         balance.textAlignment = NSTextAlignmentCenter;
         [balance setFont:[UIFont fontWithName:@"GillSans-Light" size:20]];
         [balance setTextColor:[UIColor whiteColor]];
-        balance.text = @"0.00";
+        balance.text = @"Loading...";
         [balance setBackgroundColor:[UIColor clearColor]];
         [balance setUserInteractionEnabled:NO];
         [footer addSubview:balance];
@@ -207,8 +207,17 @@
     [transfer removeFromParentViewController];
     [transfer.view removeFromSuperview];
     transfer = nil;
+    balance.text = @"Transferring...";
+    [NSTimer scheduledTimerWithTimeInterval:7.0
+                                               target:self
+                                             selector:@selector(updateBalance)
+                                             userInfo:nil
+                                              repeats:NO];
 }
 
+- (void)updateBalance{
+    balance.text = [@"$" stringByAppendingString:[command userBalance]];
+}
 - (void)showRequests
 {
     requests_scroll = [[ScrollableView alloc] init];
@@ -255,14 +264,9 @@
     }
 }
 
-- (void)displayBalance
-{
-    //[self dropBalance];
-}
-
 -(void)displayRequests
 {
-    [self performSelectorOnMainThread:@selector(dropBalance) withObject:nil waitUntilDone:YES];
+    [self performSelectorOnMainThread:@selector(updateBalance) withObject:nil waitUntilDone:YES];
 }
 
 -(void)displayError:(NSString*)error

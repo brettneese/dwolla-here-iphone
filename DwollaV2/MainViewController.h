@@ -44,7 +44,8 @@
     UIButton* mapback;
     UIScrollView* searchCover;
     UITextView* searchText;
-        
+    UIButton* balanceUpdate;
+
     CommandCenter* command;
     int number_of_places;
     int number_of_search;
@@ -85,6 +86,8 @@
 - (void)loadContacts;
 
 - (void)dropBalance;
+
+- (void)updateBalance;
 
 - (void)raiseBalance;
 

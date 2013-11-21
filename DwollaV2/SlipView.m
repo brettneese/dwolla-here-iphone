@@ -116,7 +116,7 @@
 - (void)completeTransfer
 {
     [[self delegate] doneWithTransfer];
-    [self slideOut];
+   // [self slideOut];
 }
 
 - (void)setType:(NSString*)type
