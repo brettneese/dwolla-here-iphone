@@ -54,7 +54,7 @@
         
         transactionsb = [[UIButton alloc] initWithFrame:CGRectMake(10, 80, 280, 50)];
         [transactionsb setImage:[UIImage imageNamed:@"dw_transaction.png"] forState:UIControlStateNormal];
-        [transactionsb addTarget:self action:@selector(showTransactions) forControlEvents:UIControlEventTouchUpInside];
+        [transactionsb addTarget:self action:@selector(showRequests) forControlEvents:UIControlEventTouchUpInside];
         [top addSubview:transactionsb];
         
         support = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 39)];
@@ -325,6 +325,95 @@
     previousTransaction = nil;
 }
 
+- (void)dropRequests
+{
+    NSMutableArray* requests = [command userRequests];
+    if ([requests count] > 0)
+    {
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDelay:3.0];
+        [UIView setAnimationDuration:.4];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationDelegate:self];
+     //   requests_header.center = CGPointMake(160, 60);
+        content.frame = CGRectMake(0, 82, 320, screenBounds.size.height - 140);
+        [UIView commitAnimations];
+        NSString* count = [NSString stringWithFormat:@"%d", [requests count]];
+        if ([requests count] > 20)
+        {
+            count = @"20+";
+        }
+    //    num_requests.text = count;
+      //  [requests_header setEnabled:YES];
+    }
+    else
+    {
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDelay:3.0];
+        [UIView setAnimationDuration:.4];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationDelegate:self];
+       // requests_header.center = CGPointMake(160, 20);
+        content.frame = CGRectMake(0, 40, 320, screenBounds.size.height - 100);
+        [UIView commitAnimations];
+        //num_requests.text = [NSString stringWithFormat:@"%d", [requests count]];
+    }
+}
+
+- (void)showRequests
+{
+    requests_scroll = [[ScrollableView alloc] init];
+    [requests_scroll addCommandCenter:command];
+//fix this right here.
+    [requests_scroll addRequests:[command userRequests] withDelegate:self ];
+    [self.view addSubview:requests_scroll];
+    
+    nav = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [nav titleTextAttributes]];
+    [titleBarAttributes setValue:[UIFont fontWithName:@"GillSans-Bold" size:16] forKey:UITextAttributeFont];
+    [nav setTitleTextAttributes:titleBarAttributes];
+    
+    UIImage *originalImage = [UIImage imageNamed:@"dw_header.png"];
+    // scaling set to 2.0 makes the image 1/2 the size.
+    UIImage *scaledImage =
+    [UIImage imageWithCGImage:[originalImage CGImage]
+                        scale:(originalImage.scale * 2.0)
+                  orientation:(originalImage.imageOrientation)];
+    [nav setBackgroundImage:scaledImage forBarMetrics:UIBarMetricsDefault];
+    
+    [requests_scroll addSubview:nav];
+    
+    UINavigationItem* detail_header = [[UINavigationItem alloc] initWithTitle:@"REQUESTS"];
+    UIButton *backb = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backb addTarget:self action:@selector(popToMain) forControlEvents:UIControlEventTouchUpInside];
+    backb.bounds = CGRectMake( 0, 0, 50, 30 );
+    [backb setBackgroundImage:[UIImage imageNamed:@"dw_sdone.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:backb];
+    [detail_header setRightBarButtonItem:back];
+    [nav pushNavigationItem:detail_header animated:NO];
+    [requests_scroll bringSubviewToFront:nav];
+    nav.hidden = NO;
+    [requests_scroll slideIn];
+}
+
+-(void)displayRequest:(RequestView*)request
+{
+    request_controller = [[RequestViewController alloc] init];
+    request_controller.delegate = self;
+    [request_controller addRequest:request];
+    [request_controller addCommandCenter:command];
+    [self.view addSubview:request_controller.view];
+    [request_controller slideIn];
+    [request_controller.view bringSubviewToFront:nav];
+}
+
+
+- (void)popToMain
+{
+    [nav popNavigationItemAnimated:NO];
+    [requests_scroll slideOut];
+    [request_controller slideOut];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

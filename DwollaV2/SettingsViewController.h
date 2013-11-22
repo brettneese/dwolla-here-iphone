@@ -12,6 +12,9 @@
 #import "CommandCenter.h"
 #import "RoundedView.h"
 #import "BoldTextView.h"
+#import "RequestView.h"
+#import "RequestViewController.h"
+
 
 @class SettingsView;
 @protocol SettingsViewDelegate <NSObject>
@@ -23,7 +26,7 @@
 
 @end
 
-@interface SettingsViewController : UIViewController <TransactionViewDelegate, ScrollableDelegate>
+@interface SettingsViewController : UIViewController <TransactionViewDelegate, RequestViewDelegate, ScrollableDelegate>
 {
     RoundedView* top;
     UIView* middle;
@@ -40,6 +43,8 @@
     UINavigationBar* nav;
     CommandCenter* command;
     ScrollableView* transactions_view;
+    ScrollableView* requests_scroll;
+    RequestViewController* request_controller;
     TransactionReceiptView* receipt_view;
     id<SettingsViewDelegate> delegate;
     BOOL isSet;
@@ -47,7 +52,8 @@
     int transactions;
     Transaction* previousTransaction;
     NSMutableArray* transArray;
-    
+    UIScrollView* content;
+
     UIView* loading;
 }
 
@@ -83,5 +89,10 @@
 - (void)payReceipt;
 
 - (void)destory;
+
+- (void)showRequests;
+
+- (void)dropRequests;
+
 
 @end

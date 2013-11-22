@@ -68,7 +68,7 @@
     if ([response isEqualToString:@"success"])
     {
         [self getLocation];
-        [self performSelectorInBackground:@selector(getBalance) withObject:nil];
+        [self performSelectorInBackground:@selector(loadEverything) withObject:nil];
     }
     else
     {
@@ -77,13 +77,15 @@
     return response;
 }
 
--(void)getBalance
+
+-(void)loadEverything
 {
     [api setUserBalance:user];
     [self getInfo];
     [self performSelectorInBackground:@selector(getTransactions) withObject:nil];
     [[self delegate] displayBalance];
 }
+
 
 -(void)getLocation
 {
@@ -115,7 +117,7 @@
     [manager stopUpdatingLocation];
 }
 
--(void)loadEverything
+-(void)getBalance
 {
     [api setUserBalance:user];
     [self getInfo];
@@ -126,7 +128,6 @@
 -(void)getRequests
 {
     [api setUserRequests:user];
-    [[self delegate] displayBalance];
 }
 
 -(NSMutableArray*)userRequests
@@ -138,12 +139,13 @@
 {
     [api setUserInfo:user];
     [api setUserImage:user];
+    [self performSelectorInBackground:@selector(getRequests) withObject:nil];
     [self getNearby:15];
 }
 
 -(NSMutableArray*)userInfo
 {
-    [self getInfo];
+    //[self getInfo];
     return [[NSMutableArray alloc] initWithObjects:[user dwolla_id], [user name], [user image], nil];
 }
 
@@ -283,9 +285,9 @@
 
 - (Person*)getBasicInfo:(NSString*)dwolla_id
 {
-    NSDictionary* holder = [api getBasicInfo:dwolla_id];    
+    NSDictionary* holder = [api getBasicInfo:dwolla_id];
     Person* person = [[Person alloc] initContactsWithDictionary:holder];
-    if ([person.name isEqualToString:@"empty"]) 
+    if ([person.name isEqualToString:@"empty"])
     {
         person.name = dwolla_id;
         person.dwolla_id = dwolla_id;
