@@ -378,11 +378,11 @@
     [UIView setAnimationDelegate:self];
     if (screenBounds.size.height == 568)
     {
-        self.view.center = CGPointMake(160, screenBounds.size.height-28);
+        self.view.center = CGPointMake(160, screenBounds.size.height-65);
     }
     else
     {
-        self.view.center = CGPointMake(160, screenBounds.size.height-90);
+        self.view.center = CGPointMake(160, screenBounds.size.height-105);
     }
     [UIView commitAnimations];
 }

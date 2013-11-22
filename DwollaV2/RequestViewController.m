@@ -21,6 +21,8 @@
     self = [super init];
     if (self)
     {
+        
+        
         screenBounds = [[UIScreen mainScreen] bounds];
         self.view.frame = CGRectMake(0, -screenBounds.size.height, 320, screenBounds.size.height);
         
@@ -28,16 +30,21 @@
         slip.delegate = self;
         [self.view addSubview:slip];
         
-        pin_background = [[UIView alloc] initWithFrame:CGRectMake(0, -200, 320, screenBounds.size.height - 232)];
+        pin_background = [[UIView alloc] initWithFrame:CGRectMake(0, -250, 320, screenBounds.size.height - 232)];
         pin_background.backgroundColor = [UIColor DwollaGray];
         pin_background.hidden = YES;
         [self.view addSubview:pin_background];
         
-        confirm_b = [[UIButton alloc] initWithFrame:CGRectMake(20, 130, 280, 40)];
-        [confirm_b setImage:[UIImage imageNamed:@"dw_confirm.png"] forState:UIControlStateNormal];
+        confirm_b = [[UIButton alloc] initWithFrame:CGRectMake(20, 110, 280, 40)];
+        [confirm_b setImage:[UIImage imageNamed:@"dw_comreq.png"] forState:UIControlStateNormal];
         [confirm_b addTarget:self action:@selector(showReceipt) forControlEvents:UIControlEventTouchUpInside];
         [confirm_b setBackgroundColor:[UIColor clearColor]];
         [pin_background addSubview:confirm_b];
+        
+//        keyboard_background = [[UIView alloc] initWithFrame:CGRectMake(0, 400, 320, 20)];
+//        keyboard_background.backgroundColor = [UIColor redColor];
+//        keyboard_background.hidden = NO;
+//        [self.view addSubview:keyboard_background];
         
         keyboard = [[KeyboardViewController alloc] init];
         [self.view addSubview:keyboard.view];
