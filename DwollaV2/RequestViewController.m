@@ -38,16 +38,6 @@
         [confirm_b addTarget:self action:@selector(showReceipt) forControlEvents:UIControlEventTouchUpInside];
         [confirm_b setBackgroundColor:[UIColor clearColor]];
         [pin_background addSubview:confirm_b];
-
-//        keyboard_bg = [[UIView alloc] initWithFrame:CGRectMake(0, screenBounds.size.height, 320, screenBounds.size.height-40)];
-//        keyboard_bg.backgroundColor = [UIColor redColor];
-//        [self.view addSubview:keyboard_bg];
-
-        
-        keyboard_bg = [[UIView alloc] initWithFrame:CGRectMake(0, -200, 320, screenBounds.size.height - 232)];
-        keyboard_bg.backgroundColor = [UIColor redColor];
-       // keyboard_bg.hidden = YES;
-        [self.view addSubview:keyboard_bg];
         
         keyboard = [[KeyboardViewController alloc] init];
         [self.view addSubview:keyboard.view];

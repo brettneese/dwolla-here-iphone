@@ -29,7 +29,6 @@
     PinView* pin;
     RequestSlipView* slip;
     RequestReceiptView* receipt;
-    UIView* keyboard_bg;
     UIView* pin_background;
     UIButton* confirm_b;
     id<RequestViewControllerDelegate> delegate;
