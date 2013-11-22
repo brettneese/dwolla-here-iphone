@@ -58,6 +58,7 @@
     return self;
 }
 
+
 - (void)addData:(Request*)request
 {
     UIImageView* indicator = [[UIImageView alloc] initWithFrame:CGRectMake(241, 25, 15, 15)];
