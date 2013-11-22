@@ -8,6 +8,7 @@
 
 #import "KeyboardViewController.h"
 #import "PinView.h"
+#import "LightTextView.h"
 #import "RequestSlipView.h"
 #import "RequestReceiptView.h"
 #import "RequestView.h"
@@ -35,6 +36,7 @@
     id<RequestViewControllerDelegate> delegate;
     CommandCenter* command;
     CGRect screenBounds;
+    LightTextView* info;
 }
 
 @property (nonatomic, retain) id<RequestViewControllerDelegate> delegate;

@@ -41,11 +41,12 @@
         [confirm_b setBackgroundColor:[UIColor clearColor]];
         [pin_background addSubview:confirm_b];
         
-//        keyboard_background = [[UIView alloc] initWithFrame:CGRectMake(0, 400, 320, 20)];
-//        keyboard_background.backgroundColor = [UIColor redColor];
-//        keyboard_background.hidden = NO;
-//        [self.view addSubview:keyboard_background];
-        
+        info = [[LightTextView alloc] initWithFrame:CGRectMake(0, 0, screenBounds.size.width, screenBounds.size.height)];
+        info.textAlignment = NSTextAlignmentCenter;
+        [info setFont:[UIFont fontWithName:@"GillSans-Light" size:15]];
+        [info setText:@"Please enter your PIN."];
+        [pin_background addSubview:info];
+
         keyboard = [[KeyboardViewController alloc] init];
         [self.view addSubview:keyboard.view];
         
@@ -84,6 +85,7 @@
 -(void)payRequest:(RequestSlipView*)request
 {
     pin_background.hidden = NO;
+
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.4];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
@@ -95,12 +97,14 @@
 
 -(void)cancelRequest:(RequestSlipView*)request
 {
+
     pin_background.hidden = NO;
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.4];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationDelegate:self];
     pin_background.center = CGPointMake(160, pin_background.frame.size.height/2);
+
     [UIView commitAnimations];
     [keyboard slideInRequest];
 }
