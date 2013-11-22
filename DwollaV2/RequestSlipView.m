@@ -83,14 +83,19 @@
 
 -(void)setEverything:(UIImage*)_profile name:(NSString*)_name amount:(NSString*)_amount time:(NSString*)_time dwolla_id:(NSString*)_dwolla youRequested:(BOOL) youRequested
 {
+    
     profile.image = _profile;
     profile.layer.cornerRadius = 3.0;
     profile.layer.masksToBounds = YES;
     profile.clipsToBounds = YES;
     name.text = _name;
+    
+
     amount.text = _amount;
     time.text = _time;
     dwolla_id = _dwolla;
+    
+    
     if (youRequested)
     {
         request.hidden = YES;

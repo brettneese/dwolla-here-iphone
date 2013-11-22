@@ -112,7 +112,13 @@
         time.text = [NSString stringWithFormat:@"%d min", minutes];
     }
 
-    total.text = [NSString stringWithFormat:@"$%@",[request amount]];
+    double currency = [[request amount] doubleValue];
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle: NSNumberFormatterCurrencyStyle];
+    NSString *number = [numberFormatter stringFromNumber:[NSNumber numberWithDouble:currency]];
+    total.text = [NSString stringWithFormat:@"%@",number];
+    
+
     req_id = [request req_id];
 }
 
