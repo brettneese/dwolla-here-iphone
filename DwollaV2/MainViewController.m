@@ -22,17 +22,24 @@
     {
         screenBounds = [[UIScreen mainScreen] bounds];
         
-        self.view.frame = CGRectMake(0, 20, 320, screenBounds.size.height+60);
+        self.view.frame = CGRectMake(0, 0, 320, screenBounds.size.height+60);
         
+        statusbar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+        [statusbar setBackgroundColor:[UIColor DwollaBG]];
+        [self.view addSubview:statusbar];
+
+        wrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 320, screenBounds.size.height+60)];
+        [self.view addSubview:wrapper];
+
         background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, screenBounds.size.height)];
         [background setBackgroundColor:[UIColor DwollaCharcoal]];
-        [self.view addSubview:background];
+        [wrapper addSubview:background];
         
         requests_header = [[UIButton alloc] initWithFrame:CGRectMake(10, 0, 300, 40)];
         [requests_header setBackgroundColor:[UIColor DwollaOrange]];
         [requests_header setImage:[UIImage imageNamed:@"dw_requests.png"] forState:UIControlStateNormal];
         [requests_header addTarget:self action:@selector(showRequests) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:requests_header];
+        [wrapper addSubview:requests_header];
         
         num_requests = [[UITextView alloc] initWithFrame:CGRectMake(108, 5, 40, 20)];
         [num_requests setUserInteractionEnabled:NO];
@@ -44,7 +51,7 @@
         
         header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
         [header setBackgroundColor:[UIColor DwollaDarkGray]];
-        [self.view addSubview:header];
+        [wrapper addSubview:header];
         
         profile = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
         [profile setBackgroundColor:[UIColor DwollaDarkGray]];
@@ -74,11 +81,11 @@
         content.delegate = self;
         [content setBackgroundColor:[UIColor DwollaGray]];
         content.contentSize = CGSizeMake(320, 970);
-        [self.view addSubview:content];
+        [wrapper addSubview:content];
         
         footer = [[UIView alloc] initWithFrame:CGRectMake(0, screenBounds.size.height-60, 320, 40)];
         [footer setBackgroundColor:[UIColor DwollaDarkGray]];
-        [self.view addSubview:footer];
+        [wrapper addSubview:footer];
         
         withdraw = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
         [withdraw setTitle:@"-" forState:UIControlStateNormal];
@@ -115,9 +122,9 @@
         
         searchCover = [[UIScrollView alloc] initWithFrame:CGRectMake(0, -300, 320, screenBounds.size.height-268)];
         searchCover.backgroundColor = [UIColor DwollaGray];
-        [self.view addSubview:searchCover];
+        [wrapper addSubview:searchCover];
         
-        [self.view bringSubviewToFront:header];
+        [wrapper bringSubviewToFront:header];
         
         number_of_places = 0;
         number_of_search = 0;
@@ -137,7 +144,7 @@
     settings = [[SettingsViewController alloc] init];
     [settings addCommandCenter:command];
     settings.delegate = self;
-    [self.view addSubview:settings.view];
+    [wrapper addSubview:settings.view];
 
     [self slideSearchCoverOut];
     [search resignFirstResponder];
@@ -147,7 +154,7 @@
     }
     [settings backgroundTransactions:[command userTransactions]];
     [settings slideIn];
-    [self.view bringSubviewToFront:footer];
+    [wrapper bringSubviewToFront:footer];
     [self performSelector:@selector(hideMap) withObject:nil afterDelay:1.0];
 }
 
@@ -158,7 +165,7 @@
     {
         map = [[MapViewController alloc] init];
         [map addCommandCenter:command];
-        [self.view addSubview:map.view];
+        [wrapper addSubview:map.view];
         NSMutableArray* places = [command userNearby];
         for(int i = 0; i < [places count]; i++)
         {
@@ -186,11 +193,11 @@
 {
     transfer = [[TransferViewController alloc] init];
     [transfer addCommandCenter:command];
-    [self.view addSubview:transfer.view];
+    [wrapper addSubview:transfer.view];
     transfer.delegate = self;
     [transfer getSources];
     [transfer setAsDeposit];
-    [self.view bringSubviewToFront:transfer.view];
+    [wrapper bringSubviewToFront:transfer.view];
     [transfer slideIn];
 }
 
@@ -198,11 +205,11 @@
 {
     transfer = [[TransferViewController alloc] init];
     [transfer addCommandCenter:command];
-    [self.view addSubview:transfer.view];
+    [wrapper addSubview:transfer.view];
     transfer.delegate = self;
     [transfer getSources];
     [transfer setAsWithdraw];
-    [self.view bringSubviewToFront:transfer.view];
+    [wrapper bringSubviewToFront:transfer.view];
     [transfer slideIn];
 }
 
@@ -236,7 +243,7 @@
 //    requests_scroll = [[ScrollableView alloc] init];
 //    [requests_scroll addCommandCenter:command];
 //    [requests_scroll addRequests:[command userRequests] withDelegate:self];
-//    [self.view addSubview:requests_scroll];
+//    [wrapper addSubview:requests_scroll];
 //    
 //    nav = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
 //    NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [nav titleTextAttributes]];
@@ -419,12 +426,12 @@
     detail = [[DetailViewController alloc] init];
     detail.delegate = self;
     [detail addCommandCenter:command];
-    [self.view addSubview:detail.view];
+    [wrapper addSubview:detail.view];
     [detail addCommandCenter:command];
     [detail addContact:contact];
     [detail slideIn];
     [self dismissKeyboard];
-    [self.view bringSubviewToFront:footer];
+    [wrapper bringSubviewToFront:footer];
 }
 
 -(void)closeDetail
@@ -440,12 +447,12 @@
     detail = [[DetailViewController alloc] init];
     detail.delegate = self;
     [detail addCommandCenter:command];
-    [self.view addSubview:detail.view];
+    [wrapper addSubview:detail.view];
     [detail addCommandCenter:command];
     [detail addTransasction:transaction];
     [detail beginSend];
     [detail slideIn];
-    [self.view bringSubviewToFront:footer];
+    [wrapper bringSubviewToFront:footer];
     [self hideSettings];
 }
 
@@ -454,12 +461,12 @@
     detail = [[DetailViewController alloc] init];
     detail.delegate = self;
     [detail addCommandCenter:command];
-    [self.view addSubview:detail.view];
+    [wrapper addSubview:detail.view];
     [detail addCommandCenter:command];
     [detail addTransasction:transaction];
     [detail beginRequest];
     [detail slideIn];
-    [self.view bringSubviewToFront:footer];
+    [wrapper bringSubviewToFront:footer];
     [self hideSettings];
 }
 
@@ -468,7 +475,7 @@
     receipt = [[ReceiptView alloc] init];
     [receipt setEverything:image name:name amount:amount note:note type:_type];
     
-    [self.view addSubview:receipt];
+    [wrapper addSubview:receipt];
     
     UIButton* twitter = [[UIButton alloc] initWithFrame:CGRectMake(20, 300, 280, 50)];
     twitter.layer.cornerRadius = 3.0;
@@ -543,7 +550,7 @@
     request_controller.delegate = self;
     [request_controller addRequest:request];
     [request_controller addCommandCenter:command];
-    [self.view addSubview:request_controller.view];
+    [wrapper addSubview:request_controller.view];
     [request_controller slideIn];
     [request_controller.view bringSubviewToFront:nav];
 }

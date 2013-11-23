@@ -22,4 +22,7 @@
 
 +(UIColor*)DwollaClearGray;
 
++(UIColor*)DwollaBG;
+
+
 @end

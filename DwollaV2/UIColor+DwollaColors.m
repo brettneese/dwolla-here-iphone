@@ -20,6 +20,12 @@
     return [UIColor colorWithRed:190.0f/255.0f green:195.0f/255.0f blue:200.0f/255.0f alpha:1.0f];
 }
 
+
++(UIColor*)DwollaBG
+{
+    return [UIColor colorWithRed:94.0f/255.0f green:99.0/255.0f blue:105.0f/255.0f alpha:1.0f];
+}
+
 +(UIColor*)DwollaDarkGray
 {
     return [UIColor colorWithRed:65.0f/255.0f green:75.0f/255.0f blue:75.0f/255.0f alpha:1.0f];

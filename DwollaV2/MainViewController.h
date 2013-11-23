@@ -16,7 +16,7 @@
 #import "UIColor+DwollaColors.h"
 #import <CoreLocation/CoreLocation.h>
 #import "RequestView.h"
-#import "RequestViewController.h"
+#import "RequestViewController.h"c
 
 @class MainViewController;
 @protocol MainDelegate <NSObject>
@@ -29,6 +29,9 @@
 @interface MainViewController : UIViewController <CommandCenterDelegate, ContactViewDelegate, UITextViewDelegate, RequestViewDelegate, TransactionReceiptViewDelegate, SettingsViewDelegate, RequestViewControllerDelegate, UIScrollViewDelegate, MapDelegate, TransferViewDelegate, DetailViewDelegate>
 {
     UIView* background;
+    UIView* wrapper;
+
+    UIView* statusbar;
     UIView* header;
     UIButton* profile;
     UITextView* search;
