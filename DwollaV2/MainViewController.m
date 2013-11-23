@@ -22,13 +22,9 @@
     {
         screenBounds = [[UIScreen mainScreen] bounds];
         
-        self.view.frame = CGRectMake(0, 0, 320, screenBounds.size.height+60);
-        
-        statusbar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
-        [statusbar setBackgroundColor:[UIColor DwollaBG]];
-        [self.view addSubview:statusbar];
+        [self.view setBackgroundColor:[UIColor DwollaGray]];
 
-        wrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 320, screenBounds.size.height+60)];
+        wrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 320, screenBounds.size.height)];
         [self.view addSubview:wrapper];
 
         background = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, screenBounds.size.height)];
@@ -426,7 +422,7 @@
     detail = [[DetailViewController alloc] init];
     detail.delegate = self;
     [detail addCommandCenter:command];
-    [self.view addSubview:detail.view];
+    [wrapper addSubview:detail.view];
     [detail addCommandCenter:command];
     [detail addContact:contact];
     [detail slideIn];
@@ -494,7 +490,7 @@
     tweetText = [NSString stringWithFormat:@"I just used @PayHereApp to send money to %@! ", name];
     [receipt addSubview:twitter];
     
-    nav = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    nav = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 20, 320, 44)];
     
     NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [nav titleTextAttributes]];
     [titleBarAttributes setValue:[UIFont fontWithName:@"GillSans-Bold" size:16] forKey:UITextAttributeFont];

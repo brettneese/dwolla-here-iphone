@@ -30,6 +30,8 @@
 {
     RoundedView* top;
     UIView* background;
+    UIView* wrapper;
+
     UIView* keyboard_wrapper;
     UIView* statusbar;
     UIView* button_bar;

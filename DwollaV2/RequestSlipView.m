@@ -18,7 +18,7 @@
     if (self)
     {
         screenBounds = [[UIScreen mainScreen] bounds];
-        self.frame = CGRectMake(0, 0, 320, screenBounds.size.height);
+        self.frame = CGRectMake(0, 0, 320, screenBounds.size.height+60);
         self.backgroundColor = [UIColor DwollaGray];
         
         top = [[RoundedView alloc] initWithFrame:CGRectMake(10, 10, 300, 340)];
@@ -74,7 +74,7 @@
         [top addSubview:request];
         
         cancel = [[UIButton alloc] initWithFrame:CGRectMake(10, 270, 280, 50)];
-        [cancel setImage:[UIImage imageNamed:@"dw_continue.png"] forState:UIControlStateNormal];
+        [cancel setImage:[UIImage imageNamed:@"dw_confirm.png"] forState:UIControlStateNormal];
         [cancel addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
         [top addSubview:cancel];
     }
@@ -83,19 +83,14 @@
 
 -(void)setEverything:(UIImage*)_profile name:(NSString*)_name amount:(NSString*)_amount time:(NSString*)_time dwolla_id:(NSString*)_dwolla youRequested:(BOOL) youRequested
 {
-    
     profile.image = _profile;
     profile.layer.cornerRadius = 3.0;
     profile.layer.masksToBounds = YES;
     profile.clipsToBounds = YES;
     name.text = _name;
-    
-
     amount.text = _amount;
     time.text = _time;
     dwolla_id = _dwolla;
-    
-    
     if (youRequested)
     {
         request.hidden = YES;

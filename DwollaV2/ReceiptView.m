@@ -19,10 +19,10 @@
     self = [super init];
     if (self)
     {
-        self.frame = CGRectMake(320, 0, 320, 480);
+        self.frame = CGRectMake(320, 0, 320, 540);
         self.backgroundColor = [UIColor DwollaGray];
         
-        top = [[RoundedView alloc] initWithFrame:CGRectMake(10, 50, 300, 340)];
+        top = [[RoundedView alloc] initWithFrame:CGRectMake(10, 80, 300, 340)];
         top.backgroundColor = [UIColor whiteColor];
         [self addSubview:top];
         

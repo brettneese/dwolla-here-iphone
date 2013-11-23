@@ -38,7 +38,8 @@
     
     NSString* dwolla_id;
     NSString* pin;
-    
+    CGRect screenBounds;
+
     CommandCenter* command;
     id <ConfirmViewDelegate> delegate;
     BOOL isSend;

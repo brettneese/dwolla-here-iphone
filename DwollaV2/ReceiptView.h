@@ -26,6 +26,8 @@
     LightTextView* amount;
     UIButton* note_button;
     UITextView* note;
+    CGRect screenBounds;
+
 }
 
 -(void)setEverything:(UIImage*)_profile name:(NSString*)_name amount:(NSString*)_amount note:(NSString*)_note type:(NSString*)_type;

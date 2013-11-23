@@ -22,15 +22,10 @@
     if (self)
     {
         screenBounds = [[UIScreen mainScreen] bounds];
-        self.view.frame = CGRectMake(320, 20, 320, screenBounds.size.height+60);
+        self.view.frame = CGRectMake(320, 0, 320, screenBounds.size.height+60);
         self.view.backgroundColor = [UIColor DwollaGray];
         
-        
-        
-        keyboard_wrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 70, screenBounds.size.width, screenBounds.size.height)];
-        [self.view addSubview:keyboard_wrapper];
-        
-        top = [[RoundedView alloc] initWithFrame:CGRectMake(10, 70, 300, 180)];
+        top = [[RoundedView alloc] initWithFrame:CGRectMake(10, 50, 300, 140)];
         [top setBackgroundColor:[UIColor clearColor]];
         [self.view addSubview:top];
         
@@ -83,7 +78,7 @@
         name = [[BoldTextView alloc] initWithFrame:CGRectMake(65, 20, 200, 25)];
         [top addSubview:name];
         
-        bottom = [[RoundedView alloc] initWithFrame:CGRectMake(10, 220, 300, 210)];
+        bottom = [[RoundedView alloc] initWithFrame:CGRectMake(10, 200, 300, 210)];
         [self.view addSubview:bottom];
         
         map = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, 300, 105)];
@@ -129,14 +124,14 @@
         
         keyboard = [[KeyboardViewController alloc] init];
         [keyboard addTextView:amount];
-        [keyboard_wrapper addSubview:keyboard.view];
+        [self.view addSubview:keyboard.view];
         
-        pin_background = [[UIView alloc] initWithFrame:CGRectMake(0, -200, 320, 205)];
+        pin_background = [[UIView alloc] initWithFrame:CGRectMake(0, -200, 320, 188)];
         pin_background.backgroundColor = [UIColor DwollaGray];
         [self.view addSubview:pin_background];
         
         pin_view = [[PinView alloc] init];
-        [pin_background addSubview:pin_view];
+        [self.view addSubview:pin_view];
         
         confirm_view = [[ConfirmView alloc] init];
         [confirm_view setDelegate:self];
@@ -172,7 +167,7 @@
         [note addSubview:note_content];
         
         
-        nav = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 64)];
+        nav = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
         
         NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [nav titleTextAttributes]];
         [titleBarAttributes setValue:[UIFont fontWithName:@"GillSans-Bold" size:16] forKey:UITextAttributeFont];
@@ -279,7 +274,7 @@
         }
     }
     
-    nav = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 64)];
+    nav = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     
     NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [nav titleTextAttributes]];
     [titleBarAttributes setValue:[UIFont fontWithName:@"GillSans-Bold" size:16] forKey:UITextAttributeFont];
@@ -313,7 +308,7 @@
     
     dwolla_id = [transaction dwolla_id];
     
-    nav = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 64)];
+    nav = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [nav titleTextAttributes]];
     [titleBarAttributes setValue:[UIFont fontWithName:@"GillSans-Bold" size:16] forKey:UITextAttributeFont];
     [nav setTitleTextAttributes:titleBarAttributes];
@@ -346,7 +341,6 @@
     [confirm_view setAsSend];
     amount_bar.hidden = NO;
     keyboard.view.hidden = NO;
-    bottom.hidden = TRUE;
     [nav popNavigationItemAnimated:NO];
     UINavigationItem* detail_header = [[UINavigationItem alloc] initWithTitle:@"SEND MONEY"];
     
@@ -611,7 +605,7 @@
     [UIView setAnimationDuration:.4];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationDelegate:self];
-    pin_background.center = CGPointMake(160, 125);
+    pin_background.center = CGPointMake(160, 94);
     [UIView commitAnimations];
 }
 
