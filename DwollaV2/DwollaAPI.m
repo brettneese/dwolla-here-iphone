@@ -469,6 +469,9 @@ NSString* apiBaseURL = @"https://www.dwolla.com/oauth/rest/";
 
 -(NSString*)sendMoney:(NSString*)pin dwolla_id:(NSString*)dwolla_id amount:(NSString*)amount note:(NSString*)note
 {
+ 
+    [ProgressHUD show:@"Please wait..."];
+
     NSString* url = [NSString stringWithFormat:@"%@transactions/send", apiBaseURL];
     
     NSString* type = @"Dwolla";
@@ -490,7 +493,9 @@ NSString* apiBaseURL = @"https://www.dwolla.com/oauth/rest/";
     NSArray* response = [self makePostRequest:url string:postString];
     
     NSData *result = [response objectAtIndex:0];
-    
+   
+    [ProgressHUD dismiss];
+
     if ([response count] == 1)
     {
         NSDictionary* answer = [self generateDictionaryWithData:result];

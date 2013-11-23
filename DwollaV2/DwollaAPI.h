@@ -12,6 +12,7 @@
 #import "NSString+URLEncoding.h"
 #import "SSKeychain.h"
 #import <Security/Security.h>
+#import "ProgressHUD.h"
 
 @class DwollaAPI;
 @protocol DwollAPIDelegate <NSObject>

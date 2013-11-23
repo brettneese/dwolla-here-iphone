@@ -16,7 +16,7 @@
 #import "UIColor+DwollaColors.h"
 #import <CoreLocation/CoreLocation.h>
 #import "RequestView.h"
-#import "RequestViewController.h"c
+#import "RequestViewController.h"
 
 @class MainViewController;
 @protocol MainDelegate <NSObject>
