@@ -426,7 +426,7 @@
     detail = [[DetailViewController alloc] init];
     detail.delegate = self;
     [detail addCommandCenter:command];
-    [wrapper addSubview:detail.view];
+    [self.view addSubview:detail.view];
     [detail addCommandCenter:command];
     [detail addContact:contact];
     [detail slideIn];

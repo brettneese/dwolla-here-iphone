@@ -29,6 +29,9 @@
 @interface DetailViewController : UIViewController <ConfirmViewDelegate, MKMapViewDelegate>
 {
     RoundedView* top;
+    UIView* background;
+    UIView* keyboard_wrapper;
+    UIView* statusbar;
     UIView* button_bar;
     UIButton* request;
     UIButton* send;
