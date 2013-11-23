@@ -74,7 +74,7 @@
         [top addSubview:request];
         
         cancel = [[UIButton alloc] initWithFrame:CGRectMake(10, 270, 280, 50)];
-        [cancel setImage:[UIImage imageNamed:@"dw_confirm.png"] forState:UIControlStateNormal];
+        [cancel setImage:[UIImage imageNamed:@"dw_continue.png"] forState:UIControlStateNormal];
         [cancel addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
         [top addSubview:cancel];
     }

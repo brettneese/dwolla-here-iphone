@@ -22,7 +22,8 @@
     {
         screenBounds = [[UIScreen mainScreen] bounds];
         
-        [self.view setBackgroundColor:[UIColor DwollaGray]];
+        self.view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, screenBounds.size.height)];
+        [self.view setBackgroundColor:[UIColor DwollaBG]];
 
         wrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 320, screenBounds.size.height)];
         [self.view addSubview:wrapper];
