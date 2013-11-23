@@ -48,15 +48,17 @@
         [_id setText:@""];
         [top addSubview:_id];
         
+
+        
         transactionsb = [[UIButton alloc] initWithFrame:CGRectMake(10, 80, 280, 50)];
         [transactionsb setImage:[UIImage imageNamed:@"dw_transaction.png"] forState:UIControlStateNormal];
         [transactionsb addTarget:self action:@selector(showTransactions) forControlEvents:UIControlEventTouchUpInside];
         [top addSubview:transactionsb];
         
-        transactionsb = [[UIButton alloc] initWithFrame:CGRectMake(10, 135, 280, 50)];
-        [transactionsb setImage:[UIImage imageNamed:@"dw_transaction.png"] forState:UIControlStateNormal];
-        [transactionsb addTarget:self action:@selector(showTransactions) forControlEvents:UIControlEventTouchUpInside];
-        [top addSubview:transactionsb];
+        requestsb = [[UIButton alloc] initWithFrame:CGRectMake(10, 135, 280, 50)];
+        [requestsb setImage:[UIImage imageNamed:@"dw_transaction.png"] forState:UIControlStateNormal];
+        [requestsb addTarget:self action:@selector(showRequests) forControlEvents:UIControlEventTouchUpInside];
+        [top addSubview:requestsb];
         
         support = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 39)];
         [support setBackgroundColor:[UIColor clearColor]];
@@ -160,7 +162,7 @@
 
 -(void)showTransactions
 {
-    loading.hidden = NO;
+/// loading.hidden = NO;
     //[self loadingTransactions];
     [self addTransactions:transArray];
     [self.view addSubview:transactions_view];
@@ -336,7 +338,6 @@
         [UIView setAnimationDuration:.4];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         [UIView setAnimationDelegate:self];
-     //   requests_header.center = CGPointMake(160, 60);
         content.frame = CGRectMake(0, 82, 320, screenBounds.size.height - 140);
         [UIView commitAnimations];
         NSString* count = [NSString stringWithFormat:@"%d", [requests count]];
@@ -344,8 +345,6 @@
         {
             count = @"20+";
         }
-    //    num_requests.text = count;
-      //  [requests_header setEnabled:YES];
     }
     else
     {
@@ -365,7 +364,6 @@
 {
     requests_scroll = [[ScrollableView alloc] init];
     [requests_scroll addCommandCenter:command];
-//fix this right here.
     [requests_scroll addRequests:[command userRequests] withDelegate:self ];
     [self.view addSubview:requests_scroll];
     
@@ -400,14 +398,18 @@
 -(void)displayRequest:(RequestView*)request
 {
     request_controller = [[RequestViewController alloc] init];
-    request_controller.delegate = self;
     [request_controller addRequest:request];
     [request_controller addCommandCenter:command];
     [self.view addSubview:request_controller.view];
     [request_controller slideIn];
     [request_controller.view bringSubviewToFront:nav];
+
 }
 
+- (void)popToRequests
+{
+    [request_controller slideOut];
+}
 
 - (void)popToMain
 {

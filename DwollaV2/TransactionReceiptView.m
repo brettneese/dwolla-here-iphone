@@ -98,7 +98,7 @@
         [backb setBackgroundImage:[UIImage imageNamed:@"dw_sdone.png"] forState:UIControlStateNormal];
         
         UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:backb];
-        [transactions_header setLeftBarButtonItem:back];
+        [transactions_header setRightBarButtonItem:back];
         [nav pushNavigationItem:transactions_header animated:NO];
         [self addSubview:nav];
 

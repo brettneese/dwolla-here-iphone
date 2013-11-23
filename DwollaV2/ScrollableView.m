@@ -54,11 +54,11 @@
     UINavigationItem* transactions_header = [[UINavigationItem alloc] initWithTitle:@"TRANSACTIONS"];
     UIButton *backb = [UIButton buttonWithType:UIButtonTypeCustom];
     [backb addTarget:self action:@selector(slideOut) forControlEvents:UIControlEventTouchUpInside];
-    backb.bounds = CGRectMake( 0, 0, 60, 30 );
-    [backb setBackgroundImage:[UIImage imageNamed:@"dw_profileb.png"] forState:UIControlStateNormal];
+    backb.bounds = CGRectMake( 0, 0, 50, 30 );
+    [backb setBackgroundImage:[UIImage imageNamed:@"dw_sdone.png"] forState:UIControlStateNormal];
     
     UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:backb];
-    [transactions_header setLeftBarButtonItem:back];
+    [transactions_header setRightBarButtonItem:back];
     [nav pushNavigationItem:transactions_header animated:NO];
     [self addSubview:nav];
     
