@@ -26,18 +26,14 @@
         self.view.frame = CGRectMake(-320, 0, 320, screenBounds.size.height+60);
         self.view.backgroundColor = [UIColor DwollaGray];
         
-        top = [[RoundedView alloc] initWithFrame:CGRectMake(10, 50, 300, 140)];
+        top = [[RoundedView alloc] initWithFrame:CGRectMake(10, 50, 300, 190)];
         [top setBackgroundColor:[UIColor whiteColor]];
         [self.view addSubview:top];
         
-        middle = [[UIView alloc] initWithFrame:CGRectMake(10, 200, 300, 500)];
+        middle = [[UIView alloc] initWithFrame:CGRectMake(10, 250, 300, 500)];
         [middle setBackgroundColor:[UIColor DwollaGray]];
         [self.view addSubview:middle];
-        
-        bottom = [[UIView alloc] initWithFrame:CGRectMake(10, 325, 300, 40)];
-        [bottom setBackgroundColor:[UIColor clearColor]];
-        [self.view addSubview:bottom];
-        
+
         profile = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 50, 50)];
         [top addSubview:profile];
         
@@ -54,7 +50,12 @@
         
         transactionsb = [[UIButton alloc] initWithFrame:CGRectMake(10, 80, 280, 50)];
         [transactionsb setImage:[UIImage imageNamed:@"dw_transaction.png"] forState:UIControlStateNormal];
-        [transactionsb addTarget:self action:@selector(showRequests) forControlEvents:UIControlEventTouchUpInside];
+        [transactionsb addTarget:self action:@selector(showTransactions) forControlEvents:UIControlEventTouchUpInside];
+        [top addSubview:transactionsb];
+        
+        transactionsb = [[UIButton alloc] initWithFrame:CGRectMake(10, 135, 280, 50)];
+        [transactionsb setImage:[UIImage imageNamed:@"dw_transaction.png"] forState:UIControlStateNormal];
+        [transactionsb addTarget:self action:@selector(showTransactions) forControlEvents:UIControlEventTouchUpInside];
         [top addSubview:transactionsb];
         
         support = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 39)];
@@ -84,7 +85,7 @@
         [about addTarget:self action:@selector(about) forControlEvents:UIControlEventTouchUpInside];
         [middle addSubview:about];
         
-        logout = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 40)];
+        logout = [[UIButton alloc] initWithFrame:CGRectMake(0, 125, 300, 40)];
         [logout setBackgroundImage:[UIImage imageNamed:@"dw_source.png"] forState:UIControlStateNormal];
         logout.layer.cornerRadius = 1.0;
         logout.layer.masksToBounds = YES;
@@ -94,7 +95,7 @@
         logout.titleLabel.font = [UIFont fontWithName:@"GillSans-Bold" size:14];
         [logout addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
         [logout setTitle:@"Logout" forState:UIControlStateNormal];
-        [bottom addSubview:logout];
+        [middle addSubview:logout];
         
         
         
