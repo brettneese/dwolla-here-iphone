@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		221F9C20184086D500F7C0E2 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F9C1F184086D500F7C0E2 /* MBProgressHUD.m */; };
+		221F9C4D18408CAC00F7C0E2 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 221F9C4A18408CAC00F7C0E2 /* ProgressHUD.bundle */; };
+		221F9C4E18408CAC00F7C0E2 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F9C4C18408CAC00F7C0E2 /* ProgressHUD.m */; };
 		2222C3181824E464007FC540 /* ViewController_iPhone-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2222C3161824E464007FC540 /* ViewController_iPhone-iPad.xib */; };
 		22C8F78518252B7E0060A05E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C8F78318252B7E0060A05E /* Default-568h@2x.png */; };
 		22C8F78618252B7E0060A05E /* Default@2x.png  in Resources */ = {isa = PBXBuildFile; fileRef = 22C8F78418252B7E0060A05E /* Default@2x.png  */; };
@@ -183,6 +186,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		221F9C1E184086D500F7C0E2 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		221F9C1F184086D500F7C0E2 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		221F9C4A18408CAC00F7C0E2 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
+		221F9C4B18408CAC00F7C0E2 /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
+		221F9C4C18408CAC00F7C0E2 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		2222C3171824E464007FC540 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "iPad/en.lproj/ViewController_iPhone-iPad.xib"; sourceTree = "<group>"; };
 		2254B4EE182501EB00A30806 /* AppIcon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon29x29.png; sourceTree = "<group>"; };
 		2254B4EF182501EB00A30806 /* AppIcon29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon29x29@2x.png"; sourceTree = "<group>"; };
@@ -431,6 +439,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		221F9C4918408CAC00F7C0E2 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				221F9C4A18408CAC00F7C0E2 /* ProgressHUD.bundle */,
+				221F9C4B18408CAC00F7C0E2 /* ProgressHUD.h */,
+				221F9C4C18408CAC00F7C0E2 /* ProgressHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 		2222C3151824E464007FC540 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
@@ -627,6 +645,9 @@
 		7D67C95016CD88C000C09A80 = {
 			isa = PBXGroup;
 			children = (
+				221F9C4918408CAC00F7C0E2 /* ProgressHUD */,
+				221F9C1E184086D500F7C0E2 /* MBProgressHUD.h */,
+				221F9C1F184086D500F7C0E2 /* MBProgressHUD.m */,
 				22C8F78B18252EA60060A05E /* Images-2.xcassets */,
 				22C8F78A18252E7D0060A05E /* AppIcon58x58.png */,
 				22C8F78818252CB60060A05E /* Images.xcassets */,
@@ -931,6 +952,7 @@
 				7DB25D1517627DE400994F74 /* dw_mapback.png in Resources */,
 				7DB25D171762800900994F74 /* dw_bmarker.png in Resources */,
 				2222C3181824E464007FC540 /* ViewController_iPhone-iPad.xib in Resources */,
+				221F9C4D18408CAC00F7C0E2 /* ProgressHUD.bundle in Resources */,
 				7D1F73C4176281E1005BFA3E /* dw_markero.png in Resources */,
 				7D1F73C6176281E9005BFA3E /* dw_sdone.png in Resources */,
 				7D1F73C8176281EF005BFA3E /* dw_leftbar.png in Resources */,
@@ -1010,6 +1032,7 @@
 				7D14CBDA16D2EE27003DA942 /* DetailViewController.m in Sources */,
 				7D14CBDD16D54232003DA942 /* PinView.m in Sources */,
 				7D14CBE016D549C6003DA942 /* ConfirmView.m in Sources */,
+				221F9C20184086D500F7C0E2 /* MBProgressHUD.m in Sources */,
 				7D14CBE316D54EB2003DA942 /* ReceiptView.m in Sources */,
 				7D14CBE616D57D40003DA942 /* TransferViewController.m in Sources */,
 				7D9F50A116D807F500EFC5D1 /* MapViewController.m in Sources */,
@@ -1021,6 +1044,7 @@
 				7D44986A1730BBE600FD9282 /* NSString+URLEncoding.m in Sources */,
 				7D065D381731A59900C28DB1 /* Place.m in Sources */,
 				7D065D3B1731BDB000C28DB1 /* Person.m in Sources */,
+				221F9C4E18408CAC00F7C0E2 /* ProgressHUD.m in Sources */,
 				7D065D401743FEE100C28DB1 /* ScrollableView.m in Sources */,
 				7D065D431744110D00C28DB1 /* TransactionView.m in Sources */,
 				7D065D46174413C500C28DB1 /* Transaction.m in Sources */,

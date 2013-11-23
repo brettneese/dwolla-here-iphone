@@ -13,6 +13,8 @@
 #import "RoundedImageView.h"
 #import "BoldTextView.h"
 #import "LightTextView.h"
+#import "ProgressHUD.h"
+
 
 @class ConfirmView;
 @protocol ConfirmViewDelegate <NSObject>
@@ -38,8 +40,7 @@
     
     NSString* dwolla_id;
     NSString* pin;
-    CGRect screenBounds;
-
+    
     CommandCenter* command;
     id <ConfirmViewDelegate> delegate;
     BOOL isSend;

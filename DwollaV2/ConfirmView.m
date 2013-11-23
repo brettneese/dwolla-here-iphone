@@ -111,11 +111,18 @@
     BOOL worked;
     if (isSend)
     {
-       worked = [command sendMoney:pin dwolla_id:dwolla_id amount:_amount name:name.text image:profile.image note:note.text];
+        [ProgressHUD show:@"Please wait..."];
+        worked = [command sendMoney:pin dwolla_id:dwolla_id amount:_amount name:name.text image:profile.image note:note.text];
+        [ProgressHUD dismiss];
+
     }
     else
     {
+        [ProgressHUD show:@"Please wait..."];
+
        worked = [command requestMoney:pin dwolla_id:dwolla_id amount:_amount name:name.text image:profile.image note:note.text];
+        [ProgressHUD dismiss];
+
     }
     if (!worked)
     {

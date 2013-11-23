@@ -5,8 +5,9 @@
 //  Created by Nick Schulze on 2/22/13.
 //  Copyright (c) 2013 Nick Schulze. All rights reserved.
 //
-
+#import "ProgressHUD.h"
 #import "SettingsViewController.h"
+
 
 @interface SettingsViewController ()
 
@@ -51,13 +52,19 @@
 
         
         transactionsb = [[UIButton alloc] initWithFrame:CGRectMake(10, 80, 280, 50)];
-        [transactionsb setImage:[UIImage imageNamed:@"dw_transaction.png"] forState:UIControlStateNormal];
+        [transactionsb setBackgroundImage:[UIImage imageNamed:@"dw_transaction.png"] forState:UIControlStateNormal];
+        [transactionsb setTitleColor:[UIColor DwollaDarkGray] forState:UIControlStateNormal];
+        transactionsb.titleLabel.font = [UIFont fontWithName:@"GillSans-Bold" size:14];
+        [transactionsb setTitle:@"Transaction History" forState:UIControlStateNormal];
         [transactionsb addTarget:self action:@selector(showTransactions) forControlEvents:UIControlEventTouchUpInside];
         [top addSubview:transactionsb];
         
         requestsb = [[UIButton alloc] initWithFrame:CGRectMake(10, 135, 280, 50)];
-        [requestsb setImage:[UIImage imageNamed:@"dw_transaction.png"] forState:UIControlStateNormal];
-        [requestsb addTarget:self action:@selector(showRequests) forControlEvents:UIControlEventTouchUpInside];
+        [requestsb setBackgroundImage:[UIImage imageNamed:@"dw_transaction.png"] forState:UIControlStateNormal];
+        [requestsb setTitleColor:[UIColor DwollaDarkGray] forState:UIControlStateNormal];
+        requestsb.titleLabel.font = [UIFont fontWithName:@"GillSans-Bold" size:14];
+        [requestsb setTitle:@"Requests" forState:UIControlStateNormal];
+        [requestsb addTarget:self action:@selector(loadRequests) forControlEvents:UIControlEventTouchUpInside];
         [top addSubview:requestsb];
         
         support = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 39)];
@@ -360,8 +367,19 @@
     }
 }
 
+
+- (void)loadRequests
+{
+    [ProgressHUD show:@"Please wait..."];
+    [self performSelector:@selector(showRequests)];
+    
+
+}
+
+
 - (void)showRequests
 {
+
     requests_scroll = [[ScrollableView alloc] init];
     [requests_scroll addCommandCenter:command];
     [requests_scroll addRequests:[command userRequests] withDelegate:self ];
@@ -392,7 +410,10 @@
     [nav pushNavigationItem:detail_header animated:NO];
     [requests_scroll bringSubviewToFront:nav];
     nav.hidden = NO;
+
     [requests_scroll slideIn];
+    [ProgressHUD dismiss];
+
 }
 
 -(void)displayRequest:(RequestView*)request
