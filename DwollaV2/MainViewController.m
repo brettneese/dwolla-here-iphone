@@ -169,20 +169,26 @@
             [map addToMap:[places objectAtIndex:i]];
 
         }
+        [command getLocation];
         user_location = [command userLocation];
         [map centerMap:user_location];
         [map setDelegate:self];
         [self slideSearchCoverOut];
         [search resignFirstResponder];
         [map slideIn];
+        
+        [command getNearby:15];
+    }else{
+        [self hideMap];
     }
 }
 
 - (void)hideMap
 {
+    [map slideOut];
     [map removeFromParentViewController];
     [map.view removeFromSuperview];
-    [map destroy];
+    
     map = nil;
 }
 

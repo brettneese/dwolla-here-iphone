@@ -89,10 +89,12 @@
 
 -(void)getLocation
 {
+    if (!locationManager) {
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
-    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.distanceFilter = 10;
     locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    }
     [locationManager startUpdatingLocation];
 }
 

@@ -169,12 +169,14 @@
 
 - (void)slideIn
 {
+    self.view.center = CGPointMake(160, -screenBounds.size.height);
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.4];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationDelegate:self];
     self.view.center = CGPointMake(160, 40+(self.view.frame.size.height/2));
     [UIView commitAnimations];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.4]];
 }
 
 - (void)slideOut
@@ -186,6 +188,8 @@
     [UIView setAnimationDidStopSelector:@selector(closeMap)];
     self.view.center = CGPointMake(160, -screenBounds.size.height);
     [UIView commitAnimations];
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.4]];
+
 }
 
 - (void)destroy
