@@ -7,10 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2213BA48184AB1FD00982662 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2213BA42184AB1FD00982662 /* libTestFlight.a */; };
+		2213BA49184AB1FD00982662 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2213BA43184AB1FD00982662 /* README.md */; };
+		2213BA4A184AB1FD00982662 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 2213BA44184AB1FD00982662 /* release_notes.md */; };
 		221F9C20184086D500F7C0E2 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F9C1F184086D500F7C0E2 /* MBProgressHUD.m */; };
 		221F9C4D18408CAC00F7C0E2 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 221F9C4A18408CAC00F7C0E2 /* ProgressHUD.bundle */; };
 		221F9C4E18408CAC00F7C0E2 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F9C4C18408CAC00F7C0E2 /* ProgressHUD.m */; };
 		2222C3181824E464007FC540 /* ViewController_iPhone-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2222C3161824E464007FC540 /* ViewController_iPhone-iPad.xib */; };
+		22B4EA28184965C400D35603 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B4EA27184965C400D35603 /* Parse.framework */; };
+		22B4EA2A1849662B00D35603 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B4EA291849662B00D35603 /* AudioToolbox.framework */; };
+		22B4EA2C1849663400D35603 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B4EA2B1849663400D35603 /* CFNetwork.framework */; };
+		22B4EA2E1849664900D35603 /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B4EA2D1849664900D35603 /* libz.1.1.3.dylib */; };
+		22B4EA301849665000D35603 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B4EA2F1849665000D35603 /* MobileCoreServices.framework */; };
+		22B4EA321849665700D35603 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B4EA311849665700D35603 /* QuartzCore.framework */; };
+		22B4EA341849666400D35603 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B4EA331849666400D35603 /* StoreKit.framework */; };
+		22B4EA361849666B00D35603 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B4EA351849666B00D35603 /* SystemConfiguration.framework */; };
 		22C8F78518252B7E0060A05E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C8F78318252B7E0060A05E /* Default-568h@2x.png */; };
 		22C8F78618252B7E0060A05E /* Default@2x.png  in Resources */ = {isa = PBXBuildFile; fileRef = 22C8F78418252B7E0060A05E /* Default@2x.png  */; };
 		22C8F78918252CB60060A05E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22C8F78818252CB60060A05E /* Images.xcassets */; };
@@ -186,6 +197,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2213BA42184AB1FD00982662 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		2213BA43184AB1FD00982662 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		2213BA44184AB1FD00982662 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		2213BA45184AB1FD00982662 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		2213BA46184AB1FD00982662 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		2213BA47184AB1FD00982662 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		221F9C1E184086D500F7C0E2 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		221F9C1F184086D500F7C0E2 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		221F9C4A18408CAC00F7C0E2 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
@@ -202,6 +219,14 @@
 		2254B4F5182501EB00A30806 /* AppIcon76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon76x76@2x.png"; sourceTree = "<group>"; };
 		2254B4F6182501EB00A30806 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		2254B4F7182501EB00A30806 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		22B4EA27184965C400D35603 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		22B4EA291849662B00D35603 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		22B4EA2B1849663400D35603 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		22B4EA2D1849664900D35603 /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		22B4EA2F1849665000D35603 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		22B4EA311849665700D35603 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		22B4EA331849666400D35603 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		22B4EA351849666B00D35603 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		22C8F78318252B7E0060A05E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		22C8F78418252B7E0060A05E /* Default@2x.png  */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Default@2x.png "; sourceTree = "<group>"; };
 		22C8F78718252C320060A05E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Icons/Default@2x.png"; sourceTree = "<group>"; };
@@ -416,13 +441,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D2E7F5317C15DB100E2601D /* Social.framework in Frameworks */,
+				22B4EA361849666B00D35603 /* SystemConfiguration.framework in Frameworks */,
+				22B4EA341849666400D35603 /* StoreKit.framework in Frameworks */,
 				7D49AD5F175F0120008E59FD /* Security.framework in Frameworks */,
+				22B4EA321849665700D35603 /* QuartzCore.framework in Frameworks */,
+				22B4EA301849665000D35603 /* MobileCoreServices.framework in Frameworks */,
+				22B4EA2E1849664900D35603 /* libz.1.1.3.dylib in Frameworks */,
 				7D065D3D173AEF2A00C28DB1 /* CoreLocation.framework in Frameworks */,
+				7D67C96416CD88C100C09A80 /* CoreGraphics.framework in Frameworks */,
+				2213BA48184AB1FD00982662 /* libTestFlight.a in Frameworks */,
+				22B4EA2C1849663400D35603 /* CFNetwork.framework in Frameworks */,
+				22B4EA2A1849662B00D35603 /* AudioToolbox.framework in Frameworks */,
+				7D2E7F5317C15DB100E2601D /* Social.framework in Frameworks */,
 				7D9F50A316D80B2100EFC5D1 /* MapKit.framework in Frameworks */,
 				7D67C96016CD88C100C09A80 /* UIKit.framework in Frameworks */,
 				7D67C96216CD88C100C09A80 /* Foundation.framework in Frameworks */,
-				7D67C96416CD88C100C09A80 /* CoreGraphics.framework in Frameworks */,
+				22B4EA28184965C400D35603 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +473,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2213BA41184AB1FD00982662 /* TestFlightSDK */ = {
+			isa = PBXGroup;
+			children = (
+				2213BA42184AB1FD00982662 /* libTestFlight.a */,
+				2213BA43184AB1FD00982662 /* README.md */,
+				2213BA44184AB1FD00982662 /* release_notes.md */,
+				2213BA45184AB1FD00982662 /* TestFlight+AsyncLogging.h */,
+				2213BA46184AB1FD00982662 /* TestFlight+ManualSessions.h */,
+				2213BA47184AB1FD00982662 /* TestFlight.h */,
+			);
+			name = TestFlightSDK;
+			path = "TestFlightSDK2.0.2 (1)";
+			sourceTree = "<group>";
+		};
 		221F9C4918408CAC00F7C0E2 /* ProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -679,6 +727,15 @@
 		7D67C95E16CD88C100C09A80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2213BA41184AB1FD00982662 /* TestFlightSDK */,
+				22B4EA351849666B00D35603 /* SystemConfiguration.framework */,
+				22B4EA331849666400D35603 /* StoreKit.framework */,
+				22B4EA311849665700D35603 /* QuartzCore.framework */,
+				22B4EA2F1849665000D35603 /* MobileCoreServices.framework */,
+				22B4EA2D1849664900D35603 /* libz.1.1.3.dylib */,
+				22B4EA2B1849663400D35603 /* CFNetwork.framework */,
+				22B4EA291849662B00D35603 /* AudioToolbox.framework */,
+				22B4EA27184965C400D35603 /* Parse.framework */,
 				7D67C95F16CD88C100C09A80 /* UIKit.framework */,
 				7D67C96116CD88C100C09A80 /* Foundation.framework */,
 				7D67C96316CD88C100C09A80 /* CoreGraphics.framework */,
@@ -930,11 +987,13 @@
 				7D0EF4B41752DF750086DEC4 /* dw_zero2.png in Resources */,
 				7D0EF4B51752DF750086DEC4 /* dw_del.png in Resources */,
 				7D0EF4B71752DF7D0086DEC4 /* dw_compay.png in Resources */,
+				2213BA49184AB1FD00982662 /* README.md in Resources */,
 				7D0EF4B9175301990086DEC4 /* dw_x.png in Resources */,
 				7D0EF4BB175415A30086DEC4 /* dw_back.png in Resources */,
 				7D0EF4C117541C5E0086DEC4 /* dw_done.png in Resources */,
 				7D0EF4C217541C5E0086DEC4 /* dw_compdep.png in Resources */,
 				7D0EF4C317541C5E0086DEC4 /* dw_orangeclock.png in Resources */,
+				2213BA4A184AB1FD00982662 /* release_notes.md in Resources */,
 				7D0EF4C417541C5E0086DEC4 /* dw_transaction.png in Resources */,
 				7D0EF4C517541C5E0086DEC4 /* dw_compwd.png in Resources */,
 				22C8F78618252B7E0060A05E /* Default@2x.png  in Resources */,
@@ -1198,15 +1257,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Brett Neese (QF39Q6627V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Brett Neese (QF39Q6627V)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brett Neese (9S64P9X83J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brett Neese (9S64P9X83J)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/brettneese/Developer/dwolla-here-iphone",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DwollaV2/DwollaHere-Prefix.pch";
 				INFOPLIST_FILE = "DwollaV2/DwollaHere-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/brettneese/Developer/dwolla-here-iphone/TestFlightSDK2.0.2\\ (1)",
+				);
 				PRODUCT_NAME = "Dwolla Here";
-				PROVISIONING_PROFILE = "C7F87004-67FA-4E5C-BD84-CBC3B0395C89";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C7F87004-67FA-4E5C-BD84-CBC3B0395C89";
+				PROVISIONING_PROFILE = "7C20E4AA-08F6-4E54-A478-732AE52D85F3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7C20E4AA-08F6-4E54-A478-732AE52D85F3";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1217,15 +1284,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Brett Neese (QF39Q6627V)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Brett Neese (QF39Q6627V)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Brett Neese (9S64P9X83J)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Brett Neese (9S64P9X83J)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/brettneese/Developer/dwolla-here-iphone",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DwollaV2/DwollaHere-Prefix.pch";
 				INFOPLIST_FILE = "DwollaV2/DwollaHere-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/brettneese/Developer/dwolla-here-iphone/TestFlightSDK2.0.2\\ (1)",
+				);
 				PRODUCT_NAME = "Dwolla Here";
-				PROVISIONING_PROFILE = "C7F87004-67FA-4E5C-BD84-CBC3B0395C89";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C7F87004-67FA-4E5C-BD84-CBC3B0395C89";
+				PROVISIONING_PROFILE = "7C20E4AA-08F6-4E54-A478-732AE52D85F3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7C20E4AA-08F6-4E54-A478-732AE52D85F3";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

@@ -13,6 +13,8 @@
 #import "SSKeychain.h"
 #import <Security/Security.h>
 #import "ProgressHUD.h"
+#import "TestFlight.h"
+
 
 @class DwollaAPI;
 @protocol DwollAPIDelegate <NSObject>

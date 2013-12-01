@@ -14,6 +14,8 @@
 #import "BoldTextView.h"
 #import "RequestView.h"
 #import "RequestViewController.h"
+#import <Parse/Parse.h>
+
 
 
 @class SettingsView;
@@ -36,7 +38,8 @@
     UITextView* _id;
     UIButton* transactionsb;
     UIButton* requestsb;
-    UIButton* support;
+    UIButton* push_enable;
+    UIButton* push_disable;
     UIButton* forgot;
     UIButton* about;
     UIButton* logout;

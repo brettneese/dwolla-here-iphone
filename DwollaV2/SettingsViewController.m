@@ -67,14 +67,25 @@
         [requestsb addTarget:self action:@selector(loadRequests) forControlEvents:UIControlEventTouchUpInside];
         [top addSubview:requestsb];
         
-        support = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 39)];
-        [support setBackgroundColor:[UIColor clearColor]];
-        [support setBackgroundImage:[UIImage imageNamed:@"dw_sourcet.png"] forState:UIControlStateNormal];
-        [support setTitleColor:[UIColor DwollaDarkGray] forState:UIControlStateNormal];
-        support.titleLabel.font = [UIFont fontWithName:@"GillSans-Bold" size:14];
-        [support setTitle:@"Call Customer Support" forState:UIControlStateNormal];
-        [support addTarget:self action:@selector(callSupport) forControlEvents:UIControlEventTouchUpInside];
-        [middle addSubview:support];
+        
+        push_enable = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 39)];
+        [push_enable setBackgroundColor:[UIColor clearColor]];
+        [push_enable setBackgroundImage:[UIImage imageNamed:@"dw_sourcet.png"] forState:UIControlStateNormal];
+        [push_enable setTitleColor:[UIColor DwollaDarkGray] forState:UIControlStateNormal];
+        push_enable.titleLabel.font = [UIFont fontWithName:@"GillSans-Bold" size:14];
+        [push_enable setTitle:@"Enable Push Notifications" forState:UIControlStateNormal];
+        [push_enable addTarget:self action:@selector(enablePush) forControlEvents:UIControlEventTouchUpInside];
+        [middle addSubview:push_enable];
+        
+        push_disable = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 39)];
+        [push_disable setBackgroundColor:[UIColor clearColor]];
+        [push_disable setBackgroundImage:[UIImage imageNamed:@"dw_sourcet.png"] forState:UIControlStateNormal];
+        [push_disable setTitleColor:[UIColor DwollaDarkGray] forState:UIControlStateNormal];
+        push_disable.titleLabel.font = [UIFont fontWithName:@"GillSans-Bold" size:14];
+        [push_disable setTitle:@"Disable Push Notifications" forState:UIControlStateNormal];
+        [push_disable addTarget:self action:@selector(disablePush) forControlEvents:UIControlEventTouchUpInside];
+        push_disable.hidden = YES;
+        [middle addSubview:push_disable];
         
         forgot = [[UIButton alloc] initWithFrame:CGRectMake(0, 41, 300, 39)];
         [forgot setBackgroundColor:[UIColor clearColor]];
@@ -105,7 +116,6 @@
         [logout addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
         [logout setTitle:@"Logout" forState:UIControlStateNormal];
         [middle addSubview:logout];
-        
         
         
         transactions_view = [[ScrollableView alloc] init];
@@ -205,12 +215,39 @@
     [transactions_view slideOut];
 }
 
-- (void)callSupport
+- (void)enablePush
 {
-    NSString *phoneNumber = @"1-515-280-1000";
-    NSString *phoneURLString = [NSString stringWithFormat:@"tel:%@", phoneNumber];
-    NSURL *phoneURL = [NSURL URLWithString:phoneURLString];
-    [[UIApplication sharedApplication] openURL:phoneURL];
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert |
+                                                                           UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+    NSLog(@"Setting the push channel to the userid" );
+    
+    NSString* uid = [NSString stringWithFormat:@"%@%@", @"user_", [command userId]];
+
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    currentInstallation[@"enabled"] = @"1";
+    currentInstallation[@"dwolla_accesstoken"] = [SSKeychain passwordForService:@"token" account:@"dwolla2"];
+    currentInstallation[@"dwolla_uid"] = [command userId];
+    [currentInstallation addUniqueObject:uid forKey:@"channels"];
+    [currentInstallation saveInBackground];
+    
+    push_enable.hidden = YES;
+    push_disable.hidden = NO;
+
+    
+    
+}
+
+- (void)disablePush
+{
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    currentInstallation[@"enabled"] = @"0";
+    [currentInstallation saveInBackground];
+    
+    push_enable.hidden = NO;
+    push_disable.hidden =YES;
+
+    
+    
 }
 
 - (void)forgotPin
@@ -313,8 +350,8 @@
     _id = nil;
     [transactionsb removeFromSuperview];
     transactionsb = nil;
-    [support removeFromSuperview];
-    support = nil;
+    [push_disable removeFromSuperview];
+    push_disable = nil;
     [forgot removeFromSuperview];
     forgot = nil;
     [about removeFromSuperview];

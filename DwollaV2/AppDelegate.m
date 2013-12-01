@@ -14,6 +14,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [TestFlight takeOff:@"e1e62003-e644-4c6d-95f2-0384c8a8eb57"];
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -23,7 +25,27 @@
     }
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    [Parse setApplicationId:@"AhZlRy4PzHAMNmQZcnxzLBR5F4bAkRIZyxaHdTWS"
+                  clientKey:@"kudOo9Qp8aTY6xEy9PAIPS6KNwEx0r8AV8caUPfP"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
+
+    
     return YES;
+}
+
+- (void)didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
+}
+
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

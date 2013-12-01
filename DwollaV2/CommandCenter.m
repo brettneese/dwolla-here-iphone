@@ -67,6 +67,7 @@
     
     if ([response isEqualToString:@"success"])
     {
+
         [self getLocation];
         [self performSelectorInBackground:@selector(loadEverything) withObject:nil];
     }
@@ -149,6 +150,12 @@
 {
     //[self getInfo];
     return [[NSMutableArray alloc] initWithObjects:[user dwolla_id], [user name], [user image], nil];
+}
+
+-(NSString*)userId
+{
+    //[self getInfo];
+    return [user dwolla_id];
 }
 
 -(UIImage*)userImage

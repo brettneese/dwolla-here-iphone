@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DwollaAPI.h"
+#import <Parse/Parse.h>
 
 @class CommandCenter;
 @protocol CommandCenterDelegate <NSObject> 
@@ -55,6 +56,8 @@
 -(NSMutableArray*)userRequests;
 
 -(NSMutableArray*)userInfo;
+
+-(NSString*)userId;
 
 -(NSString*)userBalance;
 
