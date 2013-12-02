@@ -35,7 +35,7 @@
     UIView* header;
     UIButton* profile;
     UITextView* search;
-    UIButton* map_b;
+    UIButton* requests_b;
     UIButton* requests_header;
     UITextView* num_requests;
     UIScrollView* content;

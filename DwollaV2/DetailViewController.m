@@ -75,6 +75,14 @@
         profile.opaque = YES;
         [top addSubview:profile];
         
+        
+        addToFavorites = [[UIButton alloc] initWithFrame:CGRectMake(240, 10, 50, 50)];
+        [addToFavorites setBackgroundColor:[UIColor redColor]];
+        [addToFavorites addTarget:self action:@selector(addToFavorites) forControlEvents:UIControlEventTouchUpInside];
+        addToFavorites.opaque = YES;
+        [top addSubview:addToFavorites];
+        
+        
         name = [[BoldTextView alloc] initWithFrame:CGRectMake(65, 20, 200, 25)];
         [top addSubview:name];
         
@@ -121,6 +129,7 @@
         [directions setImage:[UIImage imageNamed:@"dw_directions.png"] forState:UIControlStateNormal];
         [directions addTarget:self action:@selector(openInMaps) forControlEvents:UIControlEventTouchUpInside];
         [bottom addSubview:directions];
+        
         
         keyboard = [[KeyboardViewController alloc] init];
         [keyboard addTextView:amount];
@@ -478,6 +487,14 @@
         [MKMapItem openMapsWithItems:@[currentLocationMapItem, mapItem]
                        launchOptions:launchOptions];
     }
+}
+
+
+- (void)addToFavorites
+{
+
+    [[[UIAlertView alloc] initWithTitle:@"Prompt" message:@"Adding to favorites..." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Okay!", nil] show];
+
 }
 
 - (void)note

@@ -68,11 +68,11 @@
         [search setKeyboardType:UIKeyboardTypeDefault];
         [header addSubview:search];
         
-        map_b = [[UIButton alloc] initWithFrame:CGRectMake(280, 0, 40, 40)];
-        [map_b setBackgroundColor:[UIColor DwollaDarkGray]];
-        [map_b setImage:[UIImage imageNamed:@"dw_map.png"] forState:UIControlStateNormal];
-        [map_b addTarget:self action:@selector(showMap) forControlEvents:UIControlEventTouchUpInside];
-        [header addSubview:map_b];
+        requests_b = [[UIButton alloc] initWithFrame:CGRectMake(280, 0, 40, 40)];
+        [requests_b setBackgroundColor:[UIColor DwollaGray]];
+        [requests_b setImage:[UIImage imageNamed:@"dw_map.png"] forState:UIControlStateNormal];
+        [requests_b addTarget:self action:@selector(showRequests) forControlEvents:UIControlEventTouchUpInside];
+        [header addSubview:requests_b];
         
         content = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 40, 320, screenBounds.size.height-100)];
         content.delegate = self;
@@ -243,37 +243,37 @@
 }
 
 - (void)showRequests{
-//    requests_scroll = [[ScrollableView alloc] init];
-//    [requests_scroll addCommandCenter:command];
-//    [requests_scroll addRequests:[command userRequests] withDelegate:self];
-//    [wrapper addSubview:requests_scroll];
-//    
-//    nav = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-//    NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [nav titleTextAttributes]];
-//    [titleBarAttributes setValue:[UIFont fontWithName:@"GillSans-Bold" size:16] forKey:UITextAttributeFont];
-//    [nav setTitleTextAttributes:titleBarAttributes];
-//    
-//    UIImage *originalImage = [UIImage imageNamed:@"dw_header.png"];
-//    // scaling set to 2.0 makes the image 1/2 the size.
-//    UIImage *scaledImage =
-//    [UIImage imageWithCGImage:[originalImage CGImage]
-//                        scale:(originalImage.scale * 2.0)
-//                  orientation:(originalImage.imageOrientation)];
-//    [nav setBackgroundImage:scaledImage forBarMetrics:UIBarMetricsDefault];
-//    
-//    [requests_scroll addSubview:nav];
-//
-//    UINavigationItem* detail_header = [[UINavigationItem alloc] initWithTitle:@"REQUESTS"];
-//    UIButton *backb = [UIButton buttonWithType:UIButtonTypeCustom];
-//    [backb addTarget:self action:@selector(slideOut) forControlEvents:UIControlEventTouchUpInside];
-//    backb.bounds = CGRectMake( 0, 0, 50, 30 );
-//    [backb setBackgroundImage:[UIImage imageNamed:@"dw_sdone.png"] forState:UIControlStateNormal];
-//    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:backb];
-//    [detail_header setRightBarButtonItem:back];
-//    [nav pushNavigationItem:detail_header animated:NO];
-//    [requests_scroll bringSubviewToFront:nav];
-//    nav.hidden = NO;
-//    [requests_scroll slideIn];
+    requests_scroll = [[ScrollableView alloc] init];
+    [requests_scroll addCommandCenter:command];
+    [requests_scroll addRequests:[command userRequests] withDelegate:self];
+    [wrapper addSubview:requests_scroll];
+    
+    nav = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    NSMutableDictionary *titleBarAttributes = [NSMutableDictionary dictionaryWithDictionary: [nav titleTextAttributes]];
+    [titleBarAttributes setValue:[UIFont fontWithName:@"GillSans-Bold" size:16] forKey:UITextAttributeFont];
+    [nav setTitleTextAttributes:titleBarAttributes];
+    
+    UIImage *originalImage = [UIImage imageNamed:@"dw_header.png"];
+    // scaling set to 2.0 makes the image 1/2 the size.
+    UIImage *scaledImage =
+    [UIImage imageWithCGImage:[originalImage CGImage]
+                        scale:(originalImage.scale * 2.0)
+                  orientation:(originalImage.imageOrientation)];
+    [nav setBackgroundImage:scaledImage forBarMetrics:UIBarMetricsDefault];
+    
+    [requests_scroll addSubview:nav];
+
+    UINavigationItem* detail_header = [[UINavigationItem alloc] initWithTitle:@"REQUESTS"];
+    UIButton *backb = [UIButton buttonWithType:UIButtonTypeCustom];
+    [backb addTarget:self action:@selector(popToMain) forControlEvents:UIControlEventTouchUpInside];
+    backb.bounds = CGRectMake( 0, 0, 50, 30 );
+    [backb setBackgroundImage:[UIImage imageNamed:@"dw_sdone.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:backb];
+    [detail_header setRightBarButtonItem:back];
+    [nav pushNavigationItem:detail_header animated:NO];
+    [requests_scroll bringSubviewToFront:nav];
+    nav.hidden = NO;
+    [requests_scroll slideIn];
 }
 
 - (void)loadContacts{

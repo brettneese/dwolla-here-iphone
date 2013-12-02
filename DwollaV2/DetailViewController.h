@@ -51,6 +51,7 @@
     UIImageView* distancebg;
     BoldTextView* distance;
     UIButton* directions;
+    UIButton* addToFavorites;
     UIImageView* number;
     NSString* latitude;
     NSString* longitude;
