@@ -149,10 +149,10 @@
     {
         [settings setUserInfo:[command userInfo]];
     }
+    
     [settings backgroundTransactions:[command userTransactions]];
     [settings slideIn];
     [wrapper bringSubviewToFront:footer];
-    [self performSelector:@selector(hideMap) withObject:nil afterDelay:1.0];
 }
 
 - (void)showMap

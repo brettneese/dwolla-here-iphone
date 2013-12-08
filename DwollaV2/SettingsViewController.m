@@ -7,7 +7,7 @@
 //
 #import "ProgressHUD.h"
 #import "SettingsViewController.h"
-
+#import <GeotriggerSDK/GeotriggerSDK.h>
 
 @interface SettingsViewController ()
 
@@ -24,7 +24,8 @@
     if (self)
     {
         screenBounds = [[UIScreen mainScreen] bounds];
-        self.view.frame = CGRectMake(-320, 0, 320, screenBounds.size.height+60);
+        self.view.frame = CGRectMake(0, screenBounds.size.height, 320, screenBounds.size.height - 56);
+        
         self.view.backgroundColor = [UIColor DwollaGray];
         
         top = [[RoundedView alloc] initWithFrame:CGRectMake(10, 50, 300, 190)];
@@ -143,7 +144,7 @@
         [backb setBackgroundImage:[UIImage imageNamed:@"dw_sdone.png"] forState:UIControlStateNormal];
         
         UIBarButtonItem *back = [[UIBarButtonItem alloc] initWithCustomView:backb];
-        [detail_header setLeftBarButtonItem:back];
+        [detail_header setRightBarButtonItem:back];
         [nav pushNavigationItem:detail_header animated:NO];
         nav.hidden = NO;
         [self.view addSubview:nav];
@@ -222,12 +223,17 @@
     NSLog(@"Setting the push channel to the userid" );
     
     NSString* uid = [NSString stringWithFormat:@"%@%@", @"user_", [command userId]];
+    NSString* device_id = [NSString stringWithFormat:@"%@%@", @"device_", [[AGSGTGeotriggerManager sharedManager] deviceId]];
+
 
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     currentInstallation[@"enabled"] = @"1";
     currentInstallation[@"dwolla_accesstoken"] = [SSKeychain passwordForService:@"token" account:@"dwolla2"];
     currentInstallation[@"dwolla_uid"] = [command userId];
+    currentInstallation[@"geo_device_id"] = [[AGSGTGeotriggerManager sharedManager] deviceId];
     [currentInstallation addUniqueObject:uid forKey:@"channels"];
+    [currentInstallation addUniqueObject:device_id forKey:@"channels"];
+
     [currentInstallation saveInBackground];
     
     push_enable.hidden = YES;
@@ -280,27 +286,45 @@
     }
 }
 
+//- (void)slideIn
+//{
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:.4];
+//    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+//    [UIView setAnimationDelegate:self];
+//    self.view.center = CGPointMake(160, screenBounds.size.height/2+30);
+//    [UIView commitAnimations];
+//}
+//
+//- (void)slideOut
+//{
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:.4];
+//    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+//    [UIView setAnimationDelegate:self];
+//    [UIView setAnimationDidStopSelector:@selector(close)];
+//    self.view.center = CGPointMake(-480, screenBounds.size.height/2+30);
+//    [UIView commitAnimations];
+//}
+
 - (void)slideIn
 {
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.4];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationDelegate:self];
-    self.view.center = CGPointMake(160, screenBounds.size.height/2+30);
+    self.view.center = CGPointMake(160, 20+(screenBounds.size.height - 100)/2);
     [UIView commitAnimations];
 }
-
 - (void)slideOut
 {
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:.4];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(close)];
-    self.view.center = CGPointMake(-480, screenBounds.size.height/2+30);
+    self.view.center = CGPointMake(160, screenBounds.size.height + (screenBounds.size.height-80)/2);
     [UIView commitAnimations];
 }
-
 - (void)payReceipt
 {
     [UIView beginAnimations:nil context:nil];

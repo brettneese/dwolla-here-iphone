@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
-
+#import "Constants.h"
 #import "ViewController.h"
+#import <GeotriggerSDK/GeotriggerSDK.h>
 
 @implementation AppDelegate
 
@@ -30,8 +31,20 @@
                   clientKey:@"kudOo9Qp8aTY6xEy9PAIPS6KNwEx0r8AV8caUPfP"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
+    [AGSGTGeotriggerManager setupWithClientId:kClientId
+                              trackingProfile:kAGSGTTrackingProfileAdaptive
+               registerForRemoteNotifications:UIRemoteNotificationTypeAlert
+                                   completion:^(NSError *error) {
+                                       if (error == nil) {
+                                           NSLog(@"read to go!");
 
-    
+                                       } else {
+                                           NSLog(@"No - Error!");
+                                       }
+                                   }];
+
+    [[AGSGTGeotriggerManager sharedManager] setLogLevel:AGSGTLogLevelDebug enableConsoleLogs:YES enableFileLogs:NO];
+
     return YES;
 }
 

@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2213BA48184AB1FD00982662 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2213BA42184AB1FD00982662 /* libTestFlight.a */; };
-		2213BA49184AB1FD00982662 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2213BA43184AB1FD00982662 /* README.md */; };
-		2213BA4A184AB1FD00982662 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 2213BA44184AB1FD00982662 /* release_notes.md */; };
 		221F9C20184086D500F7C0E2 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F9C1F184086D500F7C0E2 /* MBProgressHUD.m */; };
 		221F9C4D18408CAC00F7C0E2 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 221F9C4A18408CAC00F7C0E2 /* ProgressHUD.bundle */; };
 		221F9C4E18408CAC00F7C0E2 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 221F9C4C18408CAC00F7C0E2 /* ProgressHUD.m */; };
 		2222C3181824E464007FC540 /* ViewController_iPhone-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2222C3161824E464007FC540 /* ViewController_iPhone-iPad.xib */; };
+		228D2C5618518CC20043659E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 228D2C5518518CC20043659E /* Podfile */; };
 		22B4EA28184965C400D35603 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B4EA27184965C400D35603 /* Parse.framework */; };
 		22B4EA2A1849662B00D35603 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B4EA291849662B00D35603 /* AudioToolbox.framework */; };
 		22B4EA2C1849663400D35603 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B4EA2B1849663400D35603 /* CFNetwork.framework */; };
@@ -26,6 +24,7 @@
 		22C8F78618252B7E0060A05E /* Default@2x.png  in Resources */ = {isa = PBXBuildFile; fileRef = 22C8F78418252B7E0060A05E /* Default@2x.png  */; };
 		22C8F78918252CB60060A05E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22C8F78818252CB60060A05E /* Images.xcassets */; };
 		22C8F78C18252EA60060A05E /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22C8F78B18252EA60060A05E /* Images-2.xcassets */; };
+		26AD8920F7394BCE888AE9DC /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 548D08CAA027434CB098B65C /* libPods.a */; };
 		4C39AA90180DA191007787C6 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C39AA8F180DA191007787C6 /* icon.png */; };
 		4C39AA92180DA194007787C6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C39AA91180DA194007787C6 /* icon@2x.png */; };
 		7D065D381731A59900C28DB1 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D065D371731A59900C28DB1 /* Place.m */; };
@@ -197,12 +196,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2213BA42184AB1FD00982662 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		2213BA43184AB1FD00982662 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		2213BA44184AB1FD00982662 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		2213BA45184AB1FD00982662 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		2213BA46184AB1FD00982662 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
-		2213BA47184AB1FD00982662 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		221F9C1E184086D500F7C0E2 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		221F9C1F184086D500F7C0E2 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		221F9C4A18408CAC00F7C0E2 /* ProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ProgressHUD.bundle; sourceTree = "<group>"; };
@@ -219,6 +212,8 @@
 		2254B4F5182501EB00A30806 /* AppIcon76x76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon76x76@2x.png"; sourceTree = "<group>"; };
 		2254B4F6182501EB00A30806 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
 		2254B4F7182501EB00A30806 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		228D2C5418518CAD0043659E /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		228D2C5518518CC20043659E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		22B4EA27184965C400D35603 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		22B4EA291849662B00D35603 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		22B4EA2B1849663400D35603 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -235,6 +230,7 @@
 		22C8F78B18252EA60060A05E /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "Images-2.xcassets"; path = "DwollaHere/Images-2.xcassets"; sourceTree = "<group>"; };
 		4C39AA8F180DA191007787C6 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		4C39AA91180DA194007787C6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		548D08CAA027434CB098B65C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D065D361731A59900C28DB1 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
 		7D065D371731A59900C28DB1 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		7D065D391731BDB000C28DB1 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
@@ -434,6 +430,7 @@
 		7DB4259A175EB005006529EB /* RequestSlipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestSlipView.m; sourceTree = "<group>"; };
 		7DB4259C175EB013006529EB /* RequestReceiptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestReceiptView.h; sourceTree = "<group>"; };
 		7DB4259D175EB013006529EB /* RequestReceiptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestReceiptView.m; sourceTree = "<group>"; };
+		D62B963EC29349578DDCA75F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -449,7 +446,6 @@
 				22B4EA2E1849664900D35603 /* libz.1.1.3.dylib in Frameworks */,
 				7D065D3D173AEF2A00C28DB1 /* CoreLocation.framework in Frameworks */,
 				7D67C96416CD88C100C09A80 /* CoreGraphics.framework in Frameworks */,
-				2213BA48184AB1FD00982662 /* libTestFlight.a in Frameworks */,
 				22B4EA2C1849663400D35603 /* CFNetwork.framework in Frameworks */,
 				22B4EA2A1849662B00D35603 /* AudioToolbox.framework in Frameworks */,
 				7D2E7F5317C15DB100E2601D /* Social.framework in Frameworks */,
@@ -457,6 +453,7 @@
 				7D67C96016CD88C100C09A80 /* UIKit.framework in Frameworks */,
 				7D67C96216CD88C100C09A80 /* Foundation.framework in Frameworks */,
 				22B4EA28184965C400D35603 /* Parse.framework in Frameworks */,
+				26AD8920F7394BCE888AE9DC /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,20 +470,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2213BA41184AB1FD00982662 /* TestFlightSDK */ = {
-			isa = PBXGroup;
-			children = (
-				2213BA42184AB1FD00982662 /* libTestFlight.a */,
-				2213BA43184AB1FD00982662 /* README.md */,
-				2213BA44184AB1FD00982662 /* release_notes.md */,
-				2213BA45184AB1FD00982662 /* TestFlight+AsyncLogging.h */,
-				2213BA46184AB1FD00982662 /* TestFlight+ManualSessions.h */,
-				2213BA47184AB1FD00982662 /* TestFlight.h */,
-			);
-			name = TestFlightSDK;
-			path = "TestFlightSDK2.0.2 (1)";
-			sourceTree = "<group>";
-		};
 		221F9C4918408CAC00F7C0E2 /* ProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -693,6 +676,8 @@
 		7D67C95016CD88C000C09A80 = {
 			isa = PBXGroup;
 			children = (
+				228D2C5518518CC20043659E /* Podfile */,
+				228D2C5418518CAD0043659E /* Constants.h */,
 				221F9C4918408CAC00F7C0E2 /* ProgressHUD */,
 				221F9C1E184086D500F7C0E2 /* MBProgressHUD.h */,
 				221F9C1F184086D500F7C0E2 /* MBProgressHUD.m */,
@@ -712,6 +697,7 @@
 				7D67C98C16CD88C100C09A80 /* DwollaV2Tests */,
 				7D67C95E16CD88C100C09A80 /* Frameworks */,
 				7D67C95C16CD88C100C09A80 /* Products */,
+				D62B963EC29349578DDCA75F /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -727,7 +713,6 @@
 		7D67C95E16CD88C100C09A80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2213BA41184AB1FD00982662 /* TestFlightSDK */,
 				22B4EA351849666B00D35603 /* SystemConfiguration.framework */,
 				22B4EA331849666400D35603 /* StoreKit.framework */,
 				22B4EA311849665700D35603 /* QuartzCore.framework */,
@@ -740,6 +725,7 @@
 				7D67C96116CD88C100C09A80 /* Foundation.framework */,
 				7D67C96316CD88C100C09A80 /* CoreGraphics.framework */,
 				7D67C98616CD88C100C09A80 /* SenTestingKit.framework */,
+				548D08CAA027434CB098B65C /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -876,9 +862,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7D67C99716CD88C100C09A80 /* Build configuration list for PBXNativeTarget "DwollaHere" */;
 			buildPhases = (
+				2503C594111A4BA3827DA011 /* Check Pods Manifest.lock */,
 				7D67C95716CD88C000C09A80 /* Sources */,
 				7D67C95816CD88C000C09A80 /* Frameworks */,
 				7D67C95916CD88C000C09A80 /* Resources */,
+				2F6D8D1FB7BC47F88C73647D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -987,19 +975,18 @@
 				7D0EF4B41752DF750086DEC4 /* dw_zero2.png in Resources */,
 				7D0EF4B51752DF750086DEC4 /* dw_del.png in Resources */,
 				7D0EF4B71752DF7D0086DEC4 /* dw_compay.png in Resources */,
-				2213BA49184AB1FD00982662 /* README.md in Resources */,
 				7D0EF4B9175301990086DEC4 /* dw_x.png in Resources */,
 				7D0EF4BB175415A30086DEC4 /* dw_back.png in Resources */,
 				7D0EF4C117541C5E0086DEC4 /* dw_done.png in Resources */,
 				7D0EF4C217541C5E0086DEC4 /* dw_compdep.png in Resources */,
 				7D0EF4C317541C5E0086DEC4 /* dw_orangeclock.png in Resources */,
-				2213BA4A184AB1FD00982662 /* release_notes.md in Resources */,
 				7D0EF4C417541C5E0086DEC4 /* dw_transaction.png in Resources */,
 				7D0EF4C517541C5E0086DEC4 /* dw_compwd.png in Resources */,
 				22C8F78618252B7E0060A05E /* Default@2x.png  in Resources */,
 				7D0EF4C717541C790086DEC4 /* dw_grayclock.png in Resources */,
 				7D0EF4CA17541C950086DEC4 /* dw_confirm.png in Resources */,
 				7D0EF4CB17541C950086DEC4 /* dw_sourceb.png in Resources */,
+				228D2C5618518CC20043659E /* Podfile in Resources */,
 				7D0EF4CE17541CD30086DEC4 /* dw_sourcet.png in Resources */,
 				7D0EF4CF17541CD30086DEC4 /* dw_loginsm.png in Resources */,
 				7D0EF4D117541D7A0086DEC4 /* dw_source.png in Resources */,
@@ -1047,6 +1034,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2503C594111A4BA3827DA011 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2F6D8D1FB7BC47F88C73647D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7D67C98316CD88C100C09A80 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1254,6 +1271,7 @@
 		};
 		7D67C99816CD88C100C09A80 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D62B963EC29349578DDCA75F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1281,6 +1299,7 @@
 		};
 		7D67C99916CD88C100C09A80 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D62B963EC29349578DDCA75F /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
