@@ -31,19 +31,19 @@
                   clientKey:@"kudOo9Qp8aTY6xEy9PAIPS6KNwEx0r8AV8caUPfP"];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
-    [AGSGTGeotriggerManager setupWithClientId:kClientId
-                              trackingProfile:kAGSGTTrackingProfileAdaptive
-               registerForRemoteNotifications:UIRemoteNotificationTypeAlert
-                                   completion:^(NSError *error) {
-                                       if (error == nil) {
-                                           NSLog(@"read to go!");
-
-                                       } else {
-                                           NSLog(@"No - Error!");
-                                       }
-                                   }];
-
-    [[AGSGTGeotriggerManager sharedManager] setLogLevel:AGSGTLogLevelDebug enableConsoleLogs:YES enableFileLogs:NO];
+//    [AGSGTGeotriggerManager setupWithClientId:kClientId
+//                              trackingProfile:kAGSGTTrackingProfileAdaptive
+//               registerForRemoteNotifications:UIRemoteNotificationTypeAlert
+//                                   completion:^(NSError *error) {
+//                                       if (error == nil) {
+//                                           NSLog(@"read to go!");
+//
+//                                       } else {
+//                                           NSLog(@"No - Error!");
+//                                       }
+//                                   }];
+//
+//    [[AGSGTGeotriggerManager sharedManager] setLogLevel:AGSGTLogLevelDebug enableConsoleLogs:YES enableFileLogs:NO];
 
     return YES;
 }

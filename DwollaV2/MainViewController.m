@@ -323,41 +323,6 @@
     [self dropRequests];
 }
 
-- (void)dropRequests
-{
-//    NSMutableArray* requests = [command userRequests];
-//    if ([requests count] > 0)
-//    {
-//        [UIView beginAnimations:nil context:nil];
-//        [UIView setAnimationDelay:3.0];
-//        [UIView setAnimationDuration:.4];
-//        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-//        [UIView setAnimationDelegate:self];
-//        requests_header.center = CGPointMake(160, 60);
-//        content.frame = CGRectMake(0, 82, 320, screenBounds.size.height - 140);
-//        [UIView commitAnimations];
-//        NSString* count = [NSString stringWithFormat:@"%d", [requests count]];
-//        if ([requests count] > 20)
-//        {
-//            count = @"20+";
-//        }
-//        num_requests.text = count;
-//        [requests_header setEnabled:YES];
-//    }
-//    else
-//    {
-//        [UIView beginAnimations:nil context:nil];
-//        [UIView setAnimationDelay:3.0];
-//        [UIView setAnimationDuration:.4];
-//        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-//        [UIView setAnimationDelegate:self];
-//        requests_header.center = CGPointMake(160, 20);
-//        content.frame = CGRectMake(0, 40, 320, screenBounds.size.height - 100);
-//        [UIView commitAnimations];
-//        num_requests.text = [NSString stringWithFormat:@"%d", [requests count]];
-//    }
-}
-
 - (void)displayNearby
 {
     number_of_places = 0;
@@ -397,7 +362,6 @@
 
 - (void)addToScroll:(Place*)place
 {
-    [map addToMap:place];
     
     CLLocationDegrees latitude = [[place latitude] doubleValue];
     CLLocationDegrees longitude = [[place longitude] doubleValue];
@@ -407,6 +371,7 @@
     double distance = [location distanceFromLocation:user_location];
     
     ContactView* place_view = [[ContactView alloc] init];
+    //THIS RIGHT HERE
     place_view.delegate = self;
     [place_view addDataPlace:place distance:distance];
     [place_view shiftView:number_of_places];

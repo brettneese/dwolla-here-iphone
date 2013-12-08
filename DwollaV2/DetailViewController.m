@@ -75,13 +75,13 @@
         profile.opaque = YES;
         [top addSubview:profile];
         
-        
-        addToFavorites = [[UIButton alloc] initWithFrame:CGRectMake(240, 10, 50, 50)];
-        [addToFavorites setBackgroundColor:[UIColor redColor]];
-        [addToFavorites addTarget:self action:@selector(addToFavorites) forControlEvents:UIControlEventTouchUpInside];
-        addToFavorites.opaque = YES;
-        [top addSubview:addToFavorites];
-        
+//        
+//        addToFavorites = [[UIButton alloc] initWithFrame:CGRectMake(240, 10, 50, 50)];
+//        [addToFavorites setBackgroundColor:[UIColor redColor]];
+//        [addToFavorites addTarget:self action:@selector(addToFavorites) forControlEvents:UIControlEventTouchUpInside];
+//        addToFavorites.opaque = YES;
+//        [top addSubview:addToFavorites];
+//        
         
         name = [[BoldTextView alloc] initWithFrame:CGRectMake(65, 20, 200, 25)];
         [top addSubview:name];
