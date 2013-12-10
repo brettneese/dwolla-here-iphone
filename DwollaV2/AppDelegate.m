@@ -27,8 +27,8 @@
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
-    [Parse setApplicationId:@"AhZlRy4PzHAMNmQZcnxzLBR5F4bAkRIZyxaHdTWS"
-                  clientKey:@"kudOo9Qp8aTY6xEy9PAIPS6KNwEx0r8AV8caUPfP"];
+    [Parse setApplicationId:parseApplicationId
+                  clientKey:parseClientKey];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
 //    [AGSGTGeotriggerManager setupWithClientId:kClientId

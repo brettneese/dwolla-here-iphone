@@ -76,6 +76,7 @@
         push_enable.titleLabel.font = [UIFont fontWithName:@"GillSans-Bold" size:14];
         [push_enable setTitle:@"Enable Push Notifications" forState:UIControlStateNormal];
         [push_enable addTarget:self action:@selector(enablePush) forControlEvents:UIControlEventTouchUpInside];
+        push_enable.hidden = YES;
         [middle addSubview:push_enable];
         
         push_disable = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 39)];
@@ -86,6 +87,7 @@
         [push_disable setTitle:@"Disable Push Notifications" forState:UIControlStateNormal];
         [push_disable addTarget:self action:@selector(disablePush) forControlEvents:UIControlEventTouchUpInside];
         push_disable.hidden = YES;
+
         [middle addSubview:push_disable];
         
         forgot = [[UIButton alloc] initWithFrame:CGRectMake(0, 41, 300, 39)];
@@ -152,6 +154,23 @@
         loading = [[UIView alloc] initWithFrame:CGRectMake(20, 130, 280, 50)];
         [self.view addSubview:loading];
         loading.hidden = YES;
+        
+        
+        NSLog(@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"push_enabled"]);
+        
+        if([[NSUserDefaults standardUserDefaults] boolForKey:@"push_enabled"] == YES){
+            
+            push_enable.hidden = YES;
+
+            push_disable.hidden = NO;
+
+        } else{
+            
+            push_disable.hidden = YES;
+            
+            push_enable.hidden = NO;
+        }
+        
     }
     return self;
 }
@@ -218,22 +237,22 @@
 
 - (void)enablePush
 {
+    [[NSUserDefaults standardUserDefaults] setBool: YES forKey: @"push_enabled"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert |
                                                                            UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
     NSLog(@"Setting the push channel to the userid" );
     
     NSString* uid = [NSString stringWithFormat:@"%@%@", @"user_", [command userId]];
-    NSString* device_id = [NSString stringWithFormat:@"%@%@", @"device_", [[AGSGTGeotriggerManager sharedManager] deviceId]];
 
 
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     currentInstallation[@"enabled"] = @"1";
     currentInstallation[@"dwolla_accesstoken"] = [SSKeychain passwordForService:@"token" account:@"dwolla2"];
     currentInstallation[@"dwolla_uid"] = [command userId];
-    currentInstallation[@"geo_device_id"] = [[AGSGTGeotriggerManager sharedManager] deviceId];
+  //  currentInstallation[@"geo_device_id"] = [[AGSGTGeotriggerManager sharedManager] deviceId];
     [currentInstallation addUniqueObject:uid forKey:@"channels"];
-    [currentInstallation addUniqueObject:device_id forKey:@"channels"];
-
     [currentInstallation saveInBackground];
     
     push_enable.hidden = YES;
@@ -244,7 +263,11 @@
 }
 
 - (void)disablePush
+
 {
+    [[NSUserDefaults standardUserDefaults] setBool: NO forKey: @"push_enabled"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     currentInstallation[@"enabled"] = @"0";
     [currentInstallation saveInBackground];

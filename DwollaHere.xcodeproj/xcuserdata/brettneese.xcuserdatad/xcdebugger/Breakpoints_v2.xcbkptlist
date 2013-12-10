@@ -134,11 +134,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DwollaV2/SettingsViewController.m"
-            timestampString = "408175602.388802"
+            timestampString = "408410076.606785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "475"
-            endingLineNumber = "475"
+            startingLineNumber = "497"
+            endingLineNumber = "497"
             landmarkName = "-showRequests"
             landmarkType = "5">
          </BreakpointContent>
@@ -150,11 +150,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DwollaV2/SettingsViewController.m"
-            timestampString = "408175602.388802"
+            timestampString = "408410076.606785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "431"
-            endingLineNumber = "431"
+            startingLineNumber = "453"
+            endingLineNumber = "453"
             landmarkName = "@implementation SettingsViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -166,13 +166,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DwollaV2/SettingsViewController.m"
-            timestampString = "408175602.388802"
+            timestampString = "408410076.606785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "432"
-            endingLineNumber = "432"
-            landmarkName = "-loadRequests"
-            landmarkType = "5">
+            startingLineNumber = "454"
+            endingLineNumber = "454"
+            landmarkName = "@implementation SettingsViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
