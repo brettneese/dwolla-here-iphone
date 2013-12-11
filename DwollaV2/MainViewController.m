@@ -70,7 +70,7 @@
         
         requests_b = [[UIButton alloc] initWithFrame:CGRectMake(280, 0, 40, 40)];
         [requests_b setBackgroundColor:[UIColor DwollaGray]];
-        [requests_b setImage:[UIImage imageNamed:@"dw_map.png"] forState:UIControlStateNormal];
+        [requests_b setImage:[UIImage imageNamed:@"dw_requests.png"] forState:UIControlStateNormal];
         [requests_b addTarget:self action:@selector(showRequests) forControlEvents:UIControlEventTouchUpInside];
         [header addSubview:requests_b];
         
