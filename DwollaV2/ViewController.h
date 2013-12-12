@@ -18,8 +18,10 @@
     TutorialViewController* tutorial;
     LoginViewController* login;
     MainViewController* main;
-
-    CommandCenter* command;    
+    CommandCenter* command;
+    
 }
+
+
 
 @end

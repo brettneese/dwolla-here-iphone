@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "Constants.h"
 #import "ViewController.h"
-#import <GeotriggerSDK/GeotriggerSDK.h>
 
 @implementation AppDelegate
 
@@ -19,17 +18,22 @@
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPhone" bundle:nil];
-    } else {
-        self.viewController = [[ViewController alloc] initWithNibName:@"ViewController_iPad" bundle:nil];
+    
+    NSDictionary *notificationPayload = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+    
+    self.viewController = [[ViewController alloc ] initWithNibName:@"ViewController_iPhone" bundle:nil];
+    
+    if(notificationPayload){
+        [self.viewController initWithOptions];
     }
+    
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     
     [Parse setApplicationId:parseApplicationId
                   clientKey:parseClientKey];
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
 
 //    [AGSGTGeotriggerManager setupWithClientId:kClientId
 //                              trackingProfile:kAGSGTTrackingProfileAdaptive
@@ -48,8 +52,11 @@
     return YES;
 }
 
-- (void)didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [PFPush handlePush:userInfo];
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo {
+  //  [PFPush handlePush:userInfo];
+    [self.viewController initWithOptions];
+
 }
 
 

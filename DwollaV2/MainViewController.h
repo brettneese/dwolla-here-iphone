@@ -24,6 +24,8 @@
 @optional
 @required
 -(void)logout;
+-(void)initWithOptions;
+
 @end
 
 @interface MainViewController : UIViewController <CommandCenterDelegate, ContactViewDelegate, UITextViewDelegate, RequestViewDelegate, TransactionReceiptViewDelegate, SettingsViewDelegate, RequestViewControllerDelegate, UIScrollViewDelegate, MapDelegate, TransferViewDelegate, DetailViewDelegate>

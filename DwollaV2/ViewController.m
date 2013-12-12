@@ -14,6 +14,33 @@
 
 @implementation ViewController
 
+- (void)initWithOptions
+{
+
+    [super viewDidLoad];
+    
+    main = [[MainViewController alloc] init];
+    login = [[LoginViewController alloc] init];
+    tutorial = [[TutorialViewController alloc] init];
+    login.delegate = self;
+    main.delegate = self;
+    
+    [self.view addSubview:main.view];
+    [self.view addSubview:login.view];
+    [self.view addSubview:tutorial.view];
+    
+    command = [[CommandCenter alloc] init];
+    if ([command didRemember])
+    {
+        tutorial.view.hidden = YES;
+        login.view.hidden = YES;
+    }
+    command.delegate = main;
+    [login addCommandCenter:command];
+    [main addCommandCenter:command];
+    [main showRequests];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
